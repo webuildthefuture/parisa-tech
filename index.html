@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Parisa Tech | Cybersecurity Excellence</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&family=Vazirmatn:wght@300;500;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background: #000000;
+      color: #fff;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    .font-cyber { font-family: 'Orbitron', monospace; }
+
+    /* RTL + Dari font */
+    body.rtl,
+    body.rtl [data-en] { font-family: 'Vazirmatn', 'Rajdhani', sans-serif; }
+    .hero-title, .hero-subtitle { line-height: 1.12 !important; padding-bottom: 10px; display: inline-block; }
+    [data-en] { line-height: 1.65; }
+
+    .pure-black { background: #000000 !important; }
+
+    .luxury-bg {
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(0, 255, 249, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(255, 0, 193, 0.05) 0%, transparent 50%),
+        #000000;
+    }
+
+    /* Glitch */
+    .glitch-text { position: relative; animation: glitch-skew 3s infinite linear alternate-reverse; }
+    .glitch-text::before,
+    .glitch-text::after {
+      content: attr(data-text);
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #000000;
+    }
+    .glitch-text::before {
+      left: 2px;
+      text-shadow: -2px 0 #ff00c1;
+      clip: rect(24px, 550px, 90px, 0);
+      animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+    }
+    .glitch-text::after {
+      left: -2px;
+      text-shadow: -2px 0 #00fff9;
+      clip: rect(85px, 550px, 140px, 0);
+      animation: glitch-anim-2 3s infinite linear alternate-reverse;
+    }
+
+    @keyframes glitch-anim-1 {
+      0% { clip: rect(20px, 9999px, 15px, 0); }
+      20% { clip: rect(50px, 9999px, 80px, 0); }
+      40% { clip: rect(10px, 9999px, 55px, 0); }
+      60% { clip: rect(90px, 9999px, 120px, 0); }
+      80% { clip: rect(30px, 9999px, 60px, 0); }
+      100% { clip: rect(70px, 9999px, 100px, 0); }
+    }
+    @keyframes glitch-anim-2 {
+      0% { clip: rect(60px, 9999px, 90px, 0); }
+      20% { clip: rect(10px, 9999px, 40px, 0); }
+      40% { clip: rect(80px, 9999px, 110px, 0); }
+      60% { clip: rect(20px, 9999px, 50px, 0); }
+      80% { clip: rect(100px, 9999px, 130px, 0); }
+      100% { clip: rect(40px, 9999px, 70px, 0); }
+    }
+    @keyframes glitch-skew {
+      0% { transform: skew(0deg); }
+      10% { transform: skew(-1deg); }
+      20% { transform: skew(1deg); }
+      30% { transform: skew(0deg); }
+      100% { transform: skew(0deg); }
+    }
+
+    /* Scanlines */
+    .scanlines {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15) 1px, transparent 1px, transparent 3px);
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.2;
+    }
+
+    /* Matrix */
+    .matrix-bg {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    /* Luxury Frame */
+    .luxury-frame {
+      position: relative;
+      background: linear-gradient(135deg, rgba(0,255,249,0.2) 0%, rgba(255,0,193,0.2) 100%);
+      padding: 2px;
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(0,255,249,0.2), 0 0 80px rgba(255,0,193,0.1);
+    }
+    .luxury-frame-inner {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #000;
+    }
+    .luxury-frame::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 18px;
+      background: linear-gradient(45deg, #00fff9, #ff00c1, #00fff9, #ff00c1);
+      z-index: -1;
+      animation: border-glow 3s linear infinite;
+      background-size: 400% 400%;
+    }
+    @keyframes border-glow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Morph images */
+    .morph-container { position: relative; width: 100%; height: 400px; }
+    @media (min-width: 768px) { .morph-container { height: 500px; } }
+    @media (min-width: 1024px) { .morph-container { height: 550px; } }
+
+    .morph-image {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 14px;
+    }
+    .morph-image.active { opacity: 1; transform: scale(1); filter: contrast(1.05) brightness(1) saturate(1.05); }
+    .morph-image.inactive { opacity: 0; transform: scale(1.05); filter: contrast(1.1) brightness(0.95); }
+
+    /* Cyber Box */
+    .cyber-box {
+      position: relative;
+      background: rgba(10, 10, 20, 0.8);
+      border: 1px solid rgba(0, 255, 249, 0.3);
+      backdrop-filter: blur(20px);
+      border-radius: 12px;
+    }
+    .cyber-box::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 13px;
+      background: linear-gradient(45deg, #00fff9, #ff00c1, #00fff9, #ff00c1);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s;
+      background-size: 300% 300%;
+      animation: gradient-shift 3s ease infinite;
+    }
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .cyber-box:hover::before { opacity: 0.6; }
+
+    /* Corners */
+    .corner { position: absolute; width: 16px; height: 16px; border: 2px solid #00fff9; transition: all 0.3s; }
+    .corner-tl { top: -1px; left: -1px; border-right: 0; border-bottom: 0; border-radius: 12px 0 0 0; }
+    .corner-tr { top: -1px; right: -1px; border-left: 0; border-bottom: 0; border-radius: 0 12px 0 0; }
+    .corner-bl { bottom: -1px; left: -1px; border-right: 0; border-top: 0; border-radius: 0 0 0 12px; }
+    .corner-br { bottom: -1px; right: -1px; border-left: 0; border-top: 0; border-radius: 0 0 12px 0; }
+
+    /* Neon */
+    .neon-cyan { text-shadow: 0 0 10px rgba(0,255,249,0.8), 0 0 20px rgba(0,255,249,0.4); }
+    .neon-pink { text-shadow: 0 0 10px rgba(255,0,193,0.8), 0 0 20px rgba(255,0,193,0.4); }
+
+    /* Buttons */
+    .luxury-btn {
+      position: relative;
+      background: linear-gradient(135deg, rgba(0,255,249,0.1) 0%, rgba(255,0,193,0.1) 100%);
+      border: 1px solid rgba(0,255,249,0.5);
+      color: #00fff9;
+      padding: 12px 24px;
+      font-family: 'Orbitron', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.4s;
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+      white-space: nowrap;
+    }
+    @media (min-width: 768px) {
+      .luxury-btn { padding: 16px 32px; font-size: 12px; letter-spacing: 3px; }
+    }
+    .luxury-btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.6s;
+    }
+    .luxury-btn:hover::before { left: 100%; }
+    .luxury-btn:hover {
+      background: linear-gradient(135deg, rgba(0,255,249,0.2) 0%, rgba(255,0,193,0.2) 100%);
+      box-shadow: 0 0 20px rgba(0,255,249,0.4);
+      transform: translateY(-2px);
+    }
+
+    .lang-btn {
+      padding: 6px 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(0,0,0,0.5);
+      color: rgba(255,255,255,0.6);
+      font-size: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+      border-radius: 6px;
+      backdrop-filter: blur(10px);
+    }
+    .lang-btn.active {
+      border-color: #00fff9;
+      color: #00fff9;
+      background: rgba(0,255,249,0.15);
+      box-shadow: 0 0 15px rgba(0,255,249,0.3);
+    }
+
+    /* Nav */
+    .nav-link {
+      position: relative;
+      color: rgba(255,255,255,0.7);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      transition: all 0.3s;
+      padding: 6px 0;
+    }
+    @media (min-width: 768px) { .nav-link { font-size: 13px; letter-spacing: 2px; padding: 8px 0; } }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: linear-gradient(90deg, #00fff9, #ff00c1);
+      transition: width 0.3s;
+      border-radius: 2px;
+    }
+    .nav-link:hover { color: #fff; text-shadow: 0 0 15px rgba(255,255,255,0.5); }
+    .nav-link:hover::after { width: 100%; }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0; right: -100%;
+      width: 80%;
+      max-width: 300px;
+      height: 100vh;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(20px);
+      z-index: 100;
+      transition: right 0.3s ease;
+      padding: 80px 30px;
+      border-left: 1px solid rgba(0,255,249,0.3);
+    }
+    .mobile-menu.active { right: 0; }
+
+    .mobile-menu-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.8);
+      z-index: 99;
+      opacity: 0; visibility: hidden;
+      transition: all 0.3s;
+    }
+    .mobile-menu-overlay.active { opacity: 1; visibility: visible; }
+
+    /* Course cards */
+    .course-card {
+      background: rgba(10,10,20,0.6);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+      border-radius: 12px;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+    .course-card:hover {
+      border-color: rgba(0,255,249,0.5);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,255,249,0.15);
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #000000; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #00fff9, #ff00c1); border-radius: 3px; }
+
+    /* Float */
+    .float { animation: float 6s ease-in-out infinite; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* Stats */
+    .stat-number {
+      background: linear-gradient(135deg, #fff 0%, #00fff9 50%, #ff00c1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    @media (max-width: 640px) {
+      .hero-title { font-size: 3rem !important; line-height: 1.05 !important; }
+      .hero-subtitle { font-size: 1.9rem !important; line-height: 1.15 !important; }
+    }
+
+    /* Hamburger */
+    .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 101; }
+    .hamburger span { width: 25px; height: 2px; background: #00fff9; transition: all 0.3s; border-radius: 2px; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    @media (min-width: 1024px) { .hamburger { display: none; } }
+  </style>
+</head>
+
+<body class="pure-black luxury-bg">
+  <div class="scanlines"></div>
+  <canvas class="matrix-bg" id="matrix"></canvas>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" onclick="toggleMenu()"></div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="flex flex-col gap-6">
+      <a href="#home" class="nav-link font-cyber text-lg" onclick="toggleMenu()" data-en="HOME" data-fa="خانه">HOME</a>
+      <a href="#courses" class="nav-link font-cyber text-lg" onclick="toggleMenu()" data-en="COURSES" data-fa="دوره‌ها">COURSES</a>
+      <a href="#services" class="nav-link font-cyber text-lg" onclick="toggleMenu()" data-en="SERVICES" data-fa="خدمات">SERVICES</a>
+      <a href="#about" class="nav-link font-cyber text-lg" onclick="toggleMenu()" data-en="ABOUT" data-fa="درباره ما">ABOUT</a>
+      <a href="#contact" class="nav-link font-cyber text-lg" onclick="toggleMenu()" data-en="CONTACT" data-fa="تماس">CONTACT</a>
+
+      <div class="flex gap-2 mt-4">
+        <button class="lang-btn active font-cyber flex-1" onclick="setLang('en', this)">EN</button>
+        <button class="lang-btn font-cyber flex-1" onclick="setLang('fa', this)">دری</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 top-0 left-0 bg-black/80 backdrop-blur-2xl border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+      <div class="flex justify-between items-center">
+
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl border-2 border-cyan-400 flex items-center justify-center relative" style="box-shadow: 0 0 20px rgba(0,255,249,0.3);">
+            <i class="fas fa-shield-virus text-cyan-400 text-lg sm:text-xl"></i>
+          </div>
+          <div>
+            <span class="font-cyber text-xl sm:text-2xl font-bold tracking-widest neon-cyan">PARISA</span>
+            <span class="font-cyber text-xl sm:text-2xl font-bold tracking-widest text-white ml-1 sm:ml-2">TECH</span>
+          </div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="#home" class="nav-link font-cyber" data-en="HOME" data-fa="خانه">HOME</a>
+          <a href="#courses" class="nav-link font-cyber" data-en="COURSES" data-fa="دوره‌ها">COURSES</a>
+          <a href="#services" class="nav-link font-cyber" data-en="SERVICES" data-fa="خدمات">SERVICES</a>
+          <a href="#about" class="nav-link font-cyber" data-en="ABOUT" data-fa="درباره ما">ABOUT</a>
+          <a href="#contact" class="nav-link font-cyber" data-en="CONTACT" data-fa="تماس">CONTACT</a>
+        </div>
+
+        <!-- Desktop Language & CTA -->
+        <div class="hidden lg:flex items-center gap-4">
+          <div class="flex gap-1">
+            <button class="lang-btn active font-cyber" onclick="setLang('en', this)">EN</button>
+            <button class="lang-btn font-cyber" onclick="setLang('fa', this)">دری</button>
+          </div>
+          <button class="luxury-btn" onclick="showModal()" data-en="GET EARLY ACCESS" data-fa="دسترسی اولیه">GET EARLY ACCESS</button>
+        </div>
+
+        <!-- Mobile Controls -->
+        <div class="flex lg:hidden items-center gap-3">
+          <button class="luxury-btn text-xs px-4 py-2" onclick="showModal()" data-en="JOIN" data-fa="بپیوندید">JOIN</button>
+          <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center justify-center relative pt-20 sm:pt-24 overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] sm:w-[1000px] sm:h-[1000px] bg-cyan-500/5 rounded-full blur-[200px]"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
+
+      <!-- Text Content -->
+      <div class="order-2 lg:order-1 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 sm:gap-3 px-4 py-2 border border-cyan-500/30 rounded-full mb-6 bg-black/40 backdrop-blur-xl">
+          <span class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style="box-shadow: 0 0 10px rgba(0,255,249,0.8);"></span>
+          <span class="text-cyan-400 font-cyber text-xs tracking-[0.2em]"
+                data-en="CYBER TRAINING (EN + DARI)"
+                data-fa="آموزش سایبر (انگلیسی + دری)">CYBER TRAINING (EN + DARI)</span>
+        </div>
+
+        <div class="mb-6 sm:mb-8">
+          <h1 class="hero-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-cyber leading-none glitch-text mb-2 sm:mb-4" data-text="MASTER">MASTER</h1>
+          <h2 class="hero-subtitle text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-cyber text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500"
+              data-en="CYBERSECURITY"
+              data-fa="امنیت سایبری">CYBERSECURITY</h2>
+        </div>
+
+        <p class="text-gray-400 text-base sm:text-lg mb-8 sm:mb-10 max-w-xl leading-relaxed mx-auto lg:mx-0"
+           data-en="Beginner-friendly, practical, and ethical cybersecurity training. Step by step from zero — with real labs and clear roadmaps."
+           data-fa="آموزش امنیت سایبری ساده برای مبتدی‌ها، عملی و اخلاقی. قدم‌به‌قدم از صفر — با لابراتوارهای واقعی و نقشه‌راه روشن.">
+          Beginner-friendly, practical, and ethical cybersecurity training. Step by step from zero — with real labs and clear roadmaps.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <button class="luxury-btn group w-full sm:w-auto" onclick="showModal()">
+            <span data-en="GET EARLY ACCESS" data-fa="دسترسی اولیه">GET EARLY ACCESS</span>
+            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+          </button>
+          <button class="luxury-btn border-pink-500 text-pink-500 w-full sm:w-auto" onclick="document.getElementById('courses').scrollIntoView({behavior:'smooth'})">
+            <i class="fas fa-play ml-2"></i>
+            <span data-en="EXPLORE PATHS" data-fa="مشاهده مسیرها">EXPLORE PATHS</span>
+          </button>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-4 sm:gap-8 mt-10 sm:mt-16 pt-6 sm:pt-8 border-t border-white/10">
+          <div class="text-center lg:text-left">
+            <div class="text-2xl sm:text-3xl lg:text-4xl font-cyber font-bold stat-number mb-1" data-en="Weekly" data-fa="هفتگی">Weekly</div>
+            <div class="text-xs text-gray-500 uppercase tracking-wider" data-en="Live Q&A" data-fa="پرسش زنده">Live Q&A</div>
+          </div>
+          <div class="text-center lg:text-left">
+            <div class="text-2xl sm:text-3xl lg:text-4xl font-cyber font-bold stat-number mb-1" data-en="Hands-on" data-fa="عملی">Hands-on</div>
+            <div class="text-xs text-gray-500 uppercase tracking-wider" data-en="Practical Labs" data-fa="لابراتوار">Practical Labs</div>
+          </div>
+          <div class="text-center lg:text-left">
+            <div class="text-2xl sm:text-3xl lg:text-4xl font-cyber font-bold stat-number mb-1" data-en="Start" data-fa="شروع">Start</div>
+            <div class="text-xs text-gray-500 uppercase tracking-wider" data-en="From Zero" data-fa="از صفر">From Zero</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="order-1 lg:order-2 relative px-4 sm:px-0">
+        <div class="luxury-frame float">
+          <div class="luxury-frame-inner morph-container">
+            <img src="https://i.postimg.cc/1XkLGGQW/Chat-GPT-Image-Feb-24-2026-03-55-18-AM.png" alt="Your Photo" class="morph-image active" id="img1">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&h=700&fit=crop" alt="Cyber Security" class="morph-image inactive" id="img2">
+          </div>
+        </div>
+
+        <div class="absolute -top-4 -right-4 sm:-top-8 sm:-right-8 w-20 h-20 sm:w-32 sm:h-32 border-2 border-cyan-400/30 rounded-full animate-pulse" style="box-shadow: 0 0 30px rgba(0,255,249,0.2);"></div>
+        <div class="absolute -bottom-4 -left-4 sm:-bottom-8 sm:-left-8 w-16 h-16 sm:w-24 sm:h-24 border-2 border-pink-500/30 rounded-full animate-pulse" style="animation-delay:1s; box-shadow: 0 0 30px rgba(255,0,193,0.2);"></div>
+
+        <div class="absolute top-4 -left-2 sm:top-10 sm:-left-10 cyber-box px-3 py-1 sm:px-4 sm:py-2 rounded-lg">
+          <span class="text-cyan-400 font-cyber text-xs" data-en="🔒 ETHICAL" data-fa="🔒 اخلاقی">🔒 ETHICAL</span>
+        </div>
+        <div class="absolute bottom-10 -right-2 sm:bottom-20 sm:-right-10 cyber-box px-3 py-1 sm:px-4 sm:py-2 rounded-lg border-pink-500/30">
+          <span class="text-pink-400 font-cyber text-xs" data-en="⚡ BEGINNER" data-fa="⚡ مبتدی">⚡ BEGINNER</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+      <span class="text-[10px] text-gray-600 font-cyber tracking-[0.5em] animate-pulse">SCROLL</span>
+      <div class="w-px h-12 sm:h-16 bg-gradient-to-b from-cyan-400 to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-16 sm:py-32 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12 sm:mb-20">
+        <span class="text-cyan-400 font-cyber text-xs sm:text-sm tracking-[0.5em] block mb-4"
+              data-en="WHAT WE OFFER" data-fa="آنچه ارائه می‌دهیم">WHAT WE OFFER</span>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-cyber font-bold mb-6 sm:mb-8">
+          <span class="text-white" data-en="OUR" data-fa="خدمات">OUR</span>
+          <span class="neon-cyan" data-en="SERVICES" data-fa="ما">SERVICES</span>
+        </h2>
+        <div class="w-24 sm:w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 sm:gap-10">
+        <div class="cyber-box p-6 sm:p-10 group cursor-pointer">
+          <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+          <div class="w-16 h-16 sm:w-24 sm:h-24 rounded-2xl border border-cyan-400/30 flex items-center justify-center mb-6 sm:mb-8 group-hover:border-cyan-400 group-hover:bg-cyan-400/10 transition-all" style="box-shadow: 0 0 30px rgba(0,255,249,0.2);">
+            <i class="fas fa-graduation-cap text-2xl sm:text-4xl text-cyan-400"></i>
+          </div>
+          <h3 class="text-lg sm:text-2xl font-cyber font-bold mb-3 sm:mb-4"
+              data-en="PRACTICAL TRAINING" data-fa="آموزش عملی">PRACTICAL TRAINING</h3>
+          <p class="text-gray-400 leading-relaxed text-sm sm:text-base"
+             data-en="Clear roadmap + hands-on labs. Built for beginners and future professionals."
+             data-fa="نقشه‌راه واضح + لابراتوار عملی. مناسب برای مبتدی‌ها و آینده‌ی حرفه‌ای.">
+            Clear roadmap + hands-on labs. Built for beginners and future professionals.
+          </p>
+        </div>
+
+        <div class="cyber-box p-6 sm:p-10 group cursor-pointer border-pink-500/20">
+          <div class="corner corner-tl border-pink-500"></div><div class="corner corner-tr border-pink-500"></div><div class="corner corner-bl border-pink-500"></div><div class="corner corner-br border-pink-500"></div>
+          <div class="w-16 h-16 sm:w-24 sm:h-24 rounded-2xl border border-pink-500/30 flex items-center justify-center mb-6 sm:mb-8 group-hover:border-pink-500 group-hover:bg-pink-500/10 transition-all" style="box-shadow: 0 0 30px rgba(255,0,193,0.2);">
+            <i class="fas fa-flag-checkered text-2xl sm:text-4xl text-pink-500"></i>
+          </div>
+          <h3 class="text-lg sm:text-2xl font-cyber font-bold mb-3 sm:mb-4 neon-pink"
+              data-en="SAFE CTF CHALLENGES" data-fa="چالش‌های امن CTF">SAFE CTF CHALLENGES</h3>
+          <p class="text-gray-400 leading-relaxed text-sm sm:text-base"
+             data-en="Train in a safe environment. Ethical learning only — no illegal content."
+             data-fa="تمرین در محیط امن. فقط آموزش اخلاقی — بدون محتوای غیرقانونی.">
+            Train in a safe environment. Ethical learning only — no illegal content.
+          </p>
+        </div>
+
+        <div class="cyber-box p-6 sm:p-10 group cursor-pointer border-purple-500/20">
+          <div class="corner corner-tl border-purple-500"></div><div class="corner corner-tr border-purple-500"></div><div class="corner corner-bl border-purple-500"></div><div class="corner corner-br border-purple-500"></div>
+          <div class="w-16 h-16 sm:w-24 sm:h-24 rounded-2xl border border-purple-500/30 flex items-center justify-center mb-6 sm:mb-8 group-hover:border-purple-500 group-hover:bg-purple-500/10 transition-all" style="box-shadow: 0 0 30px rgba(168,85,247,0.2);">
+            <i class="fas fa-shield-alt text-2xl sm:text-4xl text-purple-500"></i>
+          </div>
+          <h3 class="text-lg sm:text-2xl font-cyber font-bold mb-3 sm:mb-4 text-purple-400" style="text-shadow:0 0 20px rgba(168,85,247,0.5)"
+              data-en="SECURITY GUIDANCE" data-fa="راهنمایی امنیتی">SECURITY GUIDANCE</h3>
+          <p class="text-gray-400 leading-relaxed text-sm sm:text-base"
+             data-en="Guidance for personal accounts & small projects (beta). More coming soon."
+             data-fa="راهنمایی برای حساب‌های شخصی و پروژه‌های کوچک (بتا). خدمات بیشتر به‌زودی.">
+            Guidance for personal accounts & small projects (beta). More coming soon.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section id="courses" class="py-16 sm:py-32 bg-black/50 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 sm:mb-16 gap-4 sm:gap-6">
+        <div>
+          <span class="text-pink-500 font-cyber text-xs sm:text-sm tracking-[0.5em] block mb-4"
+                data-en="LEARNING PATHS" data-fa="مسیرهای یادگیری">LEARNING PATHS</span>
+          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-cyber font-bold">
+            <span class="text-white" data-en="OUR" data-fa="دوره‌های">OUR</span>
+            <span class="neon-pink" data-en="COURSES" data-fa="ما">COURSES</span>
+          </h2>
+        </div>
+        <button class="luxury-btn border-pink-500 text-pink-500 w-full sm:w-auto" onclick="showModal()">
+          <span data-en="GET SYLLABUS" data-fa="دریافت سیلابس">GET SYLLABUS</span>
+          <i class="fas fa-arrow-right ml-2"></i>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div class="course-card group">
+          <div class="h-48 sm:h-56 bg-gradient-to-br from-cyan-900/50 to-blue-900/50 relative overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <i class="fas fa-network-wired text-6xl sm:text-8xl text-cyan-400/20 group-hover:scale-110 transition-transform duration-500"></i>
+            </div>
+            <div class="absolute top-4 right-4 px-3 py-1 bg-cyan-400/20 border border-cyan-400/50 text-cyan-400 text-[10px] font-cyber rounded-full">FOUNDATION</div>
+          </div>
+          <div class="p-5 sm:p-6">
+            <h3 class="text-base sm:text-lg font-cyber font-bold mb-2 text-white group-hover:text-cyan-400 transition-colors"
+                data-en="Cyber Basics" data-fa="مبانی سایبر">Cyber Basics</h3>
+            <p class="text-gray-500 text-xs sm:text-sm mb-4"
+               data-en="Start from zero: internet, OS, accounts security, privacy, and safe habits."
+               data-fa="شروع از صفر: اینترنت، سیستم، امنیت حساب‌ها، حریم خصوصی و عادت‌های امن.">
+              Start from zero: internet, OS, accounts security, privacy, and safe habits.
+            </p>
+            <div class="flex items-center justify-between pt-4 border-t border-white/10">
+              <span class="text-xs text-gray-500"><i class="fas fa-clock ml-1"></i> <span data-en="4 Weeks" data-fa="۴ هفته">4 Weeks</span></span>
+              <button class="text-cyan-400 text-xs sm:text-sm font-cyber" onclick="showModal()" data-en="DETAILS →" data-fa="جزئیات →">DETAILS →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card group">
+          <div class="h-48 sm:h-56 bg-gradient-to-br from-pink-900/50 to-purple-900/50 relative overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <i class="fas fa-user-secret text-6xl sm:text-8xl text-pink-400/20 group-hover:scale-110 transition-transform duration-500"></i>
+            </div>
+            <div class="absolute top-4 right-4 px-3 py-1 bg-pink-400/20 border border-pink-400/50 text-pink-400 text-[10px] font-cyber rounded-full">ETHICAL</div>
+          </div>
+          <div class="p-5 sm:p-6">
+            <h3 class="text-base sm:text-lg font-cyber font-bold mb-2 text-white group-hover:text-pink-400 transition-colors"
+                data-en="Ethical Hacking (Safe)" data-fa="هک اخلاقی (امن)">Ethical Hacking (Safe)</h3>
+            <p class="text-gray-500 text-xs sm:text-sm mb-4"
+               data-en="Learn how attacks work — safely in labs. Web basics, testing, and reporting."
+               data-fa="یادگیری امن در لابراتوار. مبانی وب، تست و گزارش‌نویسی.">
+              Learn how attacks work — safely in labs. Web basics, testing, and reporting.
+            </p>
+            <div class="flex items-center justify-between pt-4 border-t border-white/10">
+              <span class="text-xs text-gray-500"><i class="fas fa-clock ml-1"></i> <span data-en="8 Weeks" data-fa="۸ هفته">8 Weeks</span></span>
+              <button class="text-pink-400 text-xs sm:text-sm font-cyber" onclick="showModal()" data-en="DETAILS →" data-fa="جزئیات →">DETAILS →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card group">
+          <div class="h-48 sm:h-56 bg-gradient-to-br from-green-900/50 to-teal-900/50 relative overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <i class="fas fa-fingerprint text-6xl sm:text-8xl text-green-400/20 group-hover:scale-110 transition-transform duration-500"></i>
+            </div>
+            <div class="absolute top-4 right-4 px-3 py-1 bg-green-400/20 border border-green-400/50 text-green-400 text-[10px] font-cyber rounded-full">DEFENSE</div>
+          </div>
+          <div class="p-5 sm:p-6">
+            <h3 class="text-base sm:text-lg font-cyber font-bold mb-2 text-white group-hover:text-green-400 transition-colors"
+                data-en="Defensive Security" data-fa="امنیت دفاعی">Defensive Security</h3>
+            <p class="text-gray-500 text-xs sm:text-sm mb-4"
+               data-en="Protect accounts & devices: passwords, MFA, backups, phishing defense, hardening."
+               data-fa="حفاظت حساب و دستگاه: رمز، MFA، بکاپ، دفاع فیشینگ و سخت‌سازی.">
+              Protect accounts & devices: passwords, MFA, backups, phishing defense, hardening.
+            </p>
+            <div class="flex items-center justify-between pt-4 border-t border-white/10">
+              <span class="text-xs text-gray-500"><i class="fas fa-clock ml-1"></i> <span data-en="6 Weeks" data-fa="۶ هفته">6 Weeks</span></span>
+              <button class="text-green-400 text-xs sm:text-sm font-cyber" onclick="showModal()" data-en="DETAILS →" data-fa="جزئیات →">DETAILS →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card group">
+          <div class="h-48 sm:h-56 bg-gradient-to-br from-orange-900/50 to-red-900/50 relative overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <i class="fas fa-cloud text-6xl sm:text-8xl text-orange-400/20 group-hover:scale-110 transition-transform duration-500"></i>
+            </div>
+            <div class="absolute top-4 right-4 px-3 py-1 bg-orange-400/20 border border-orange-400/50 text-orange-400 text-[10px] font-cyber rounded-full">NEXT</div>
+          </div>
+          <div class="p-5 sm:p-6">
+            <h3 class="text-base sm:text-lg font-cyber font-bold mb-2 text-white group-hover:text-orange-400 transition-colors"
+                data-en="Career Roadmap" data-fa="نقشه مسیر کار">Career Roadmap</h3>
+            <p class="text-gray-500 text-xs sm:text-sm mb-4"
+               data-en="How to build portfolio, CV, labs, and prepare for entry-level cyber jobs."
+               data-fa="ساخت پورتفولیو، رزومه، لابراتوارها و آمادگی برای کارهای ابتدایی سایبر.">
+              How to build portfolio, CV, labs, and prepare for entry-level cyber jobs.
+            </p>
+            <div class="flex items-center justify-between pt-4 border-t border-white/10">
+              <span class="text-xs text-gray-500"><i class="fas fa-clock ml-1"></i> <span data-en="3 Weeks" data-fa="۳ هفته">3 Weeks</span></span>
+              <button class="text-orange-400 text-xs sm:text-sm font-cyber" onclick="showModal()" data-en="DETAILS →" data-fa="جزئیات →">DETAILS →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-16 sm:py-32 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+        <div class="order-2 lg:order-1">
+          <span class="text-cyan-400 font-cyber text-xs sm:text-sm tracking-[0.5em] block mb-4"
+                data-en="WHO WE ARE" data-fa="ما کیستیم">WHO WE ARE</span>
+
+          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-cyber font-bold mb-6 sm:mb-8">
+            <span class="text-white">PARISA</span> <span class="neon-cyan">TECH</span>
+          </h2>
+
+          <p class="text-gray-300 leading-relaxed mb-4 sm:mb-6 text-base sm:text-xl font-light"
+             data-en="Parisa Tech is a cybersecurity learning community focused on English & Dari. Simple, practical, and respectful education for real life and real careers."
+             data-fa="Parisa Tech یک جامعه آموزشی امنیت سایبری است با تمرکز روی انگلیسی و دری. ساده، عملی و مناسب برای زندگی و کار.">
+            Parsia Tech is a cybersecurity learning community focused on English & Dari. Simple, practical, and respectful education for real life and real careers.
+          </p>
+
+          <p class="text-gray-400 leading-relaxed mb-8 sm:mb-10 text-sm sm:text-base"
+             data-en="Our mission: make cybersecurity education accessible for Afghans worldwide — step by step, from zero."
+             data-fa="ماموریت ما: دسترسی آسان آموزش سایبر برای افغان‌ها در سراسر جهان — از صفر، قدم‌به‌قدم.">
+            Our mission: make cybersecurity education accessible for Afghans worldwide — step by step, from zero.
+          </p>
+
+          <div class="grid grid-cols-2 gap-4 sm:gap-8">
+            <div class="cyber-box p-5 sm:p-8 text-center group hover:scale-105 transition-transform">
+              <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+              <div class="text-3xl sm:text-5xl font-cyber font-bold stat-number mb-2" data-en="Community" data-fa="جامعه">Community</div>
+              <div class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider" data-en="Telegram-based" data-fa="بر بستر تلگرام">Telegram-based</div>
+            </div>
+
+            <div class="cyber-box p-5 sm:p-8 text-center border-pink-500/30 group hover:scale-105 transition-transform">
+              <div class="corner corner-tl border-pink-500"></div><div class="corner corner-tr border-pink-500"></div><div class="corner corner-bl border-pink-500"></div><div class="corner corner-br border-pink-500"></div>
+              <div class="text-3xl sm:text-5xl font-cyber font-bold stat-number mb-2" data-en="Practical" data-fa="عملی">Practical</div>
+              <div class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider" data-en="Labs & Roadmaps" data-fa="لابراتوار و مسیر">Labs & Roadmaps</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2 relative">
+          <div class="luxury-frame">
+            <div class="luxury-frame-inner">
+              <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=600&fit=crop" alt="Cyber Lab" class="w-full h-64 sm:h-80 lg:h-96 object-cover" style="filter:contrast(1.1) saturate(0.9) brightness(0.9);">
+            </div>
+          </div>
+          <div class="absolute -bottom-4 -left-4 sm:-bottom-8 sm:-left-8 cyber-box p-4 sm:p-6 bg-black/90">
+            <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+            <div class="text-2xl sm:text-4xl font-cyber font-bold text-white mb-1" data-en="Online" data-fa="آنلاین">Online</div>
+            <div class="text-xs sm:text-sm text-gray-400" data-en="Worldwide" data-fa="جهانی">Worldwide</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 sm:py-32 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-cyan-900/20 via-purple-900/20 to-pink-900/20"></div>
+    <div class="absolute inset-0" style="background:radial-gradient(circle at center, rgba(0,255,249,0.1) 0%, transparent 60%)"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+      <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-cyber font-bold mb-6 sm:mb-10 leading-tight">
+        <span data-en="READY TO START?" data-fa="آماده‌اید؟">READY TO START?</span><br>
+        <span class="neon-cyan" data-en="JOIN THE COMMUNITY" data-fa="به جامعه بپیوندید">JOIN THE COMMUNITY</span>
+      </h2>
+
+      <p class="text-gray-300 text-base sm:text-lg md:text-xl mb-10 sm:mb-16 max-w-2xl mx-auto font-light"
+         data-en="Join the waitlist to receive the free intro lesson and the full syllabus on Telegram."
+         data-fa="در لیست انتظار ثبت‌نام کنید تا درس رایگان و سیلابس کامل را در تلگرام دریافت کنید.">
+        Join the waitlist to receive the free intro lesson and the full syllabus on Telegram.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+        <button class="luxury-btn text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-6" onclick="showModal()">
+          <i class="fas fa-rocket ml-2 sm:ml-3 text-lg sm:text-2xl"></i>
+          <span data-en="JOIN WAITLIST" data-fa="ثبت در لیست">JOIN WAITLIST</span>
+        </button>
+
+        <a class="luxury-btn border-pink-500 text-pink-500 text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-6 inline-flex items-center justify-center"
+           href="https://t.me/parisa_tech_c" target="_blank" rel="noopener">
+          <i class="fab fa-telegram ml-2 sm:ml-3 text-lg sm:text-2xl"></i>
+          <span data-en="OPEN DARI TELEGRAM" data-fa="تلگرام دری">OPEN DARI TELEGRAM</span>
+        </a>
+
+        <a class="luxury-btn border-cyan-500 text-cyan-400 text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-6 inline-flex items-center justify-center"
+           href="https://t.me/parisa_tech_corp" target="_blank" rel="noopener">
+          <i class="fab fa-telegram ml-2 sm:ml-3 text-lg sm:text-2xl"></i>
+          <span data-en="OPEN ENGLISH TELEGRAM" data-fa="تلگرام انگلیسی">OPEN ENGLISH TELEGRAM</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 sm:py-32 bg-black/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-20">
+        <div>
+          <span class="text-pink-500 font-cyber text-xs sm:text-sm tracking-[0.5em] block mb-4"
+                data-en="GET IN TOUCH" data-fa="تماس بگیرید">GET IN TOUCH</span>
+          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-cyber font-bold mb-6 sm:mb-10">
+            <span class="text-white" data-en="CONTACT" data-fa="تماس">CONTACT</span> <span class="neon-pink">US</span>
+          </h2>
+
+          <p class="text-gray-400 text-base sm:text-lg mb-8 sm:mb-12"
+             data-en="For fast support, message us on Telegram."
+             data-fa="برای پشتیبانی سریع، در تلگرام پیام بدهید.">
+            For fast support, message us on Telegram.
+          </p>
+
+          <div class="space-y-6 sm:space-y-8">
+            <div class="flex items-center gap-4 sm:gap-6 group">
+              <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl border border-pink-400/30 flex items-center justify-center group-hover:border-pink-400 group-hover:bg-pink-400/10 transition-all" style="box-shadow: 0 0 20px rgba(255,0,193,0.2);">
+                <i class="fab fa-telegram text-pink-400 text-lg sm:text-2xl"></i>
+              </div>
+              <div>
+                <div class="text-xs text-gray-500 uppercase tracking-wider mb-1" data-en="Telegram (Dari)" data-fa="تلگرام (دری)">Telegram (Dari)</div>
+                <a class="text-white text-base sm:text-lg hover:underline" href="https://t.me/parisa_tech_c" target="_blank" rel="noopener">@parisa_tech_c</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 sm:gap-6 group">
+              <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl border border-cyan-400/30 flex items-center justify-center group-hover:border-cyan-400 group-hover:bg-cyan-400/10 transition-all" style="box-shadow: 0 0 20px rgba(0,255,249,0.2);">
+                <i class="fab fa-telegram text-cyan-400 text-lg sm:text-2xl"></i>
+              </div>
+              <div>
+                <div class="text-xs text-gray-500 uppercase tracking-wider mb-1" data-en="Telegram (English)" data-fa="تلگرام (انگلیسی)">Telegram (English)</div>
+                <a class="text-white text-base sm:text-lg hover:underline" href="https://t.me/parisa_tech_corp" target="_blank" rel="noopener">@parisa_tech_corp</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 sm:gap-6 group">
+              <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl border border-cyan-400/30 flex items-center justify-center group-hover:border-cyan-400 group-hover:bg-cyan-400/10 transition-all" style="box-shadow: 0 0 20px rgba(0,255,249,0.2);">
+                <i class="fas fa-map-marker-alt text-cyan-400 text-lg sm:text-2xl"></i>
+              </div>
+              <div>
+                <div class="text-xs text-gray-500 uppercase tracking-wider mb-1" data-en="Location" data-fa="موقعیت">Location</div>
+                <div class="text-white text-base sm:text-lg" data-en="Global — Online" data-fa="جهانی — آنلاین">Global — Online</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cyber-box p-6 sm:p-10">
+          <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+
+          <!-- ✅ CONNECTED FORM -->
+          <form class="space-y-4 sm:space-y-6" onsubmit="submitContact(event)">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+              <div>
+                <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2" data-en="Name" data-fa="نام">Name</label>
+                <input id="ct_name" type="text" class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors text-sm sm:text-base" required>
+              </div>
+              <div>
+                <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2" data-en="Telegram ID" data-fa="آیدی تلگرام">Telegram ID</label>
+                <input id="ct_telegram" type="text" placeholder="@username" class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors text-sm sm:text-base" required>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2" data-en="Message" data-fa="پیام">Message</label>
+              <textarea id="ct_message" rows="4" class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors resize-none text-sm sm:text-base" required></textarea>
+            </div>
+
+            <button type="submit" class="luxury-btn w-full text-sm sm:text-base py-4">
+              <span data-en="SEND" data-fa="ارسال">SEND</span>
+              <i class="fas fa-paper-plane ml-2"></i>
+            </button>
+
+            <p class="text-center text-gray-600 text-xs sm:text-sm"
+               data-en="Tip: We reply fastest on Telegram."
+               data-fa="نکته: سریع‌ترین پاسخ در تلگرام است.">
+              Tip: We reply fastest on Telegram.
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-white/10 pt-12 sm:pt-20 pb-6 sm:pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+      <div class="border-t border-white/10 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-gray-600 text-xs sm:text-sm">© 2026 Parisa Tech. <span data-en="All rights reserved." data-fa="کلیه حقوق محفوظ است.">All rights reserved.</span></p>
+        <div class="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-gray-600">
+          <i class="fas fa-globe text-cyan-400"></i>
+          <span data-en="Online • Worldwide" data-fa="آنلاین • جهانی">Online • Worldwide</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal (Waitlist) -->
+  <div id="modal" class="fixed inset-0 z-[100] hidden">
+    <div class="absolute inset-0 bg-black/95 backdrop-blur-2xl" onclick="closeModal()"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md px-4">
+      <div class="cyber-box p-6 sm:p-10 bg-black/90">
+        <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+
+        <div class="flex justify-between items-center mb-6 sm:mb-8">
+          <h3 class="text-2xl sm:text-4xl font-cyber font-bold neon-cyan"
+              data-en="EARLY ACCESS" data-fa="دسترسی اولیه">EARLY ACCESS</h3>
+          <button onclick="closeModal()" class="text-gray-500 hover:text-white transition-colors">
+            <i class="fas fa-times text-2xl sm:text-3xl"></i>
+          </button>
+        </div>
+
+        <p class="text-gray-400 text-sm sm:text-base mb-6"
+           data-en="Join the waitlist and get the free intro lesson + syllabus on Telegram."
+           data-fa="در لیست انتظار ثبت‌نام کنید و درس رایگان + سیلابس را در تلگرام دریافت کنید.">
+          Join the waitlist and get the free intro lesson + syllabus on Telegram.
+        </p>
+
+        <!-- ✅ CONNECTED WAITLIST FORM -->
+        <form class="space-y-4 sm:space-y-6" onsubmit="submitWaitlist(event)">
+          <div>
+            <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2" data-en="Full Name" data-fa="نام کامل">Full Name</label>
+            <input id="wl_name" type="text"
+              class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors"
+              required>
+          </div>
+
+          <div>
+            <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2" data-en="Telegram ID" data-fa="آیدی تلگرام">Telegram ID</label>
+            <input id="wl_telegram" type="text" placeholder="@username"
+              class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors"
+              required>
+          </div>
+
+          <div>
+            <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2" data-en="Goal" data-fa="هدف">Goal</label>
+            <input id="wl_goal" type="text" placeholder="Beginner / Career"
+              class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors"
+              required>
+          </div>
+
+          <div>
+            <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2" data-en="Country (Optional)" data-fa="کشور (اختیاری)">Country (Optional)</label>
+            <input id="wl_country" type="text" placeholder="Germany"
+              class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors">
+          </div>
+
+          <button type="submit" class="luxury-btn w-full text-sm sm:text-base py-4 sm:py-5">
+            <span data-en="JOIN WAITLIST" data-fa="ثبت در لیست">JOIN WAITLIST</span>
+            <i class="fas fa-arrow-right ml-2"></i>
+          </button>
+        </form>
+
+        <p class="text-center text-gray-500 text-sm mt-6 sm:mt-8">
+          <span data-en="Telegram (Dari):" data-fa="تلگرام (دری):">Telegram (Dari):</span>
+          <a class="text-cyan-400 hover:underline ml-1" href="https://t.me/parisa_tech_c" target="_blank" rel="noopener">@parisa_tech_c</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ✅ Your Cloudflare Worker API URL (Telegram bridge)
+    const WORKER_URL = "https://super-violet-e0d9parisa-tech-api.erfanadeli24.workers.dev/";
+
+    // Mobile Menu Toggle
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const overlay = document.querySelector('.mobile-menu-overlay');
+      const hamburger = document.getElementById('hamburger');
+      menu.classList.toggle('active');
+      overlay.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    }
+
+    // Language Switching (EN / FA only)
+    function setLang(lang, btnEl) {
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+
+      document.querySelectorAll('[data-en]').forEach(el => {
+        if (lang === 'en') el.textContent = el.getAttribute('data-en');
+        else el.textContent = el.getAttribute('data-fa');
+      });
+
+      if (lang === 'fa') {
+        document.body.classList.add('rtl');
+        document.documentElement.setAttribute('dir', 'rtl');
+      } else {
+        document.body.classList.remove('rtl');
+        document.documentElement.setAttribute('dir', 'ltr');
+      }
+    }
+
+    // Modal
+    function showModal() {
+      document.getElementById('modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Image Morphing
+    let currentImage = 1;
+    setInterval(() => {
+      const img1 = document.getElementById('img1');
+      const img2 = document.getElementById('img2');
+      if (!img1 || !img2) return;
+
+      if (currentImage === 1) {
+        img1.classList.remove('active'); img1.classList.add('inactive');
+        img2.classList.remove('inactive'); img2.classList.add('active');
+        currentImage = 2;
+      } else {
+        img2.classList.remove('active'); img2.classList.add('inactive');
+        img1.classList.remove('inactive'); img1.classList.add('active');
+        currentImage = 1;
+      }
+    }, 4000);
+
+    // Worker POST helper
+    async function postToWorker(payload) {
+      const res = await fetch(WORKER_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      let data = null;
+      try { data = await res.json(); } catch (e) {}
+
+      if (!res.ok || !data || !data.ok) {
+        console.log("Worker error:", data);
+        throw new Error("Worker request failed");
+      }
+      return data;
+    }
+
+    // Waitlist submit (Modal)
+    async function submitWaitlist(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("wl_name")?.value?.trim();
+      const telegram = document.getElementById("wl_telegram")?.value?.trim();
+      const goal = document.getElementById("wl_goal")?.value?.trim();
+      const country = document.getElementById("wl_country")?.value?.trim();
+
+      if (!name || !telegram || !goal) {
+        alert("لطفاً نام، آیدی تلگرام و هدف را وارد کنید.");
+        return;
+      }
+
+      const tg = telegram.startsWith("@") ? telegram : "@" + telegram;
+
+      try {
+        await postToWorker({
+          name: name,
+          goal: goal + " | TG: " + tg,
+          country: country || "",
+        });
+
+        alert("✅ ثبت شد! پیام شما به تلگرام ادمین ارسال شد.");
+        e.target.reset();
+        closeModal();
+      } catch (err) {
+        alert("❌ مشکل پیش آمد. دوباره تلاش کنید.");
+      }
+    }
+
+    // Contact submit (Contact section)
+    async function submitContact(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("ct_name")?.value?.trim();
+      const telegram = document.getElementById("ct_telegram")?.value?.trim();
+      const msg = document.getElementById("ct_message")?.value?.trim();
+
+      if (!name || !telegram || !msg) {
+        alert("لطفاً نام، آیدی تلگرام و پیام را وارد کنید.");
+        return;
+      }
+
+      const tg = telegram.startsWith("@") ? telegram : "@" + telegram;
+
+      try {
+        await postToWorker({
+          name: name,
+          goal: "CONTACT | TG: " + tg + " | MSG: " + msg,
+          country: "",
+        });
+
+        alert("✅ ارسال شد! به زودی در تلگرام جواب می‌دهیم.");
+        e.target.reset();
+      } catch (err) {
+        alert("❌ ارسال نشد. دوباره تلاش کنید.");
+      }
+    }
+
+    // Matrix Rain
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+
+    const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+    const fontSize = 14;
+    let columns = Math.floor(canvas.width / fontSize);
+    const drops = [];
+    for (let i = 0; i < columns; i++) drops[i] = Math.random() * canvas.height;
+
+    function drawMatrix() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#00fff9';
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+    setInterval(drawMatrix, 35);
+
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      columns = Math.floor(canvas.width / fontSize);
+      drops.length = columns;
+      for (let i = 0; i < columns; i++) {
+        if (drops[i] === undefined) drops[i] = Math.random() * canvas.height;
+      }
+    });
+
+    // Default language = English
+    setLang('en', document.querySelector('.lang-btn'));
+  </script>
+</body>
+</html>

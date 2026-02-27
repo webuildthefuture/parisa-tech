@@ -23,14 +23,16 @@
 
     .font-cyber { font-family: 'Orbitron', monospace; }
 
-    /* RTL + Dari font */
+    /* ✅ RTL + font fix for Dari + avoid clipping */
     body.rtl,
     body.rtl [data-en] { font-family: 'Vazirmatn', 'Rajdhani', sans-serif; }
     .hero-title, .hero-subtitle { line-height: 1.12 !important; padding-bottom: 10px; display: inline-block; }
-    [data-en] { line-height: 1.65; }
+    [data-en] { line-height: 1.7; }
 
+    /* PURE BLACK */
     .pure-black { background: #000000 !important; }
 
+    /* Luxury Gradient Background */
     .luxury-bg {
       background:
         radial-gradient(ellipse at 20% 20%, rgba(0, 255, 249, 0.08) 0%, transparent 50%),
@@ -334,6 +336,17 @@
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
     @media (min-width: 1024px) { .hamburger { display: none; } }
+
+    /* Policy content styling */
+    .policy-card {
+      background: rgba(10,10,20,0.6);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 14px;
+      backdrop-filter: blur(12px);
+    }
+    .policy-card h3 {
+      letter-spacing: .06em;
+    }
   </style>
 </head>
 
@@ -350,8 +363,9 @@
       <a href="#home" class="nav-link font-cyber text-lg" onclick="toggleMenu()" data-en="HOME" data-fa="خانه">HOME</a>
       <a href="#courses" class="nav-link font-cyber text-lg" onclick="toggleMenu()" data-en="COURSES" data-fa="دوره‌ها">COURSES</a>
       <a href="#services" class="nav-link font-cyber text-lg" onclick="toggleMenu()" data-en="SERVICES" data-fa="خدمات">SERVICES</a>
-      <a href="#about" class="nav-link font-cyber text-lg" onclick="toggleMenu()" data-en="ABOUT" data-fa="درباره ما">ABOUT</a>
+      <a href="#about" class="nav-link font-cyber text-lg" onclick="toggleMenu()" data-en="ABOUT" data-fa="درباره">ABOUT</a>
       <a href="#contact" class="nav-link font-cyber text-lg" onclick="toggleMenu()" data-en="CONTACT" data-fa="تماس">CONTACT</a>
+      <a href="#policies" class="nav-link font-cyber text-lg" onclick="toggleMenu()" data-en="POLICIES" data-fa="پالیسی‌ها">POLICIES</a>
 
       <div class="flex gap-2 mt-4">
         <button class="lang-btn active font-cyber flex-1" onclick="setLang('en', this)">EN</button>
@@ -381,8 +395,9 @@
           <a href="#home" class="nav-link font-cyber" data-en="HOME" data-fa="خانه">HOME</a>
           <a href="#courses" class="nav-link font-cyber" data-en="COURSES" data-fa="دوره‌ها">COURSES</a>
           <a href="#services" class="nav-link font-cyber" data-en="SERVICES" data-fa="خدمات">SERVICES</a>
-          <a href="#about" class="nav-link font-cyber" data-en="ABOUT" data-fa="درباره ما">ABOUT</a>
+          <a href="#about" class="nav-link font-cyber" data-en="ABOUT" data-fa="درباره">ABOUT</a>
           <a href="#contact" class="nav-link font-cyber" data-en="CONTACT" data-fa="تماس">CONTACT</a>
+          <a href="#policies" class="nav-link font-cyber" data-en="POLICIES" data-fa="پالیسی‌ها">POLICIES</a>
         </div>
 
         <!-- Desktop Language & CTA -->
@@ -417,8 +432,8 @@
         <div class="inline-flex items-center gap-2 sm:gap-3 px-4 py-2 border border-cyan-500/30 rounded-full mb-6 bg-black/40 backdrop-blur-xl">
           <span class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style="box-shadow: 0 0 10px rgba(0,255,249,0.8);"></span>
           <span class="text-cyan-400 font-cyber text-xs tracking-[0.2em]"
-                data-en="CYBER TRAINING (EN + DARI)"
-                data-fa="آموزش سایبر (انگلیسی + دری)">CYBER TRAINING (EN + DARI)</span>
+                data-en="CYBERSECURITY TRAINING (DARI + ENGLISH)"
+                data-fa="آموزش امنیت سایبری (دری + انگلیسی)">CYBERSECURITY TRAINING (DARI + ENGLISH)</span>
         </div>
 
         <div class="mb-6 sm:mb-8">
@@ -429,9 +444,9 @@
         </div>
 
         <p class="text-gray-400 text-base sm:text-lg mb-8 sm:mb-10 max-w-xl leading-relaxed mx-auto lg:mx-0"
-           data-en="Beginner-friendly, practical, and ethical cybersecurity training. Step by step from zero — with real labs and clear roadmaps."
-           data-fa="آموزش امنیت سایبری ساده برای مبتدی‌ها، عملی و اخلاقی. قدم‌به‌قدم از صفر — با لابراتوارهای واقعی و نقشه‌راه روشن.">
-          Beginner-friendly, practical, and ethical cybersecurity training. Step by step from zero — with real labs and clear roadmaps.
+           data-en="Beginner-friendly cybersecurity training for Afghans worldwide — practical, ethical, and step-by-step. Learn safely with real-life examples."
+           data-fa="آموزش امنیت سایبری برای افغان‌ها در سراسر جهان — ساده برای مبتدی‌ها، عملی، اخلاقی و قدم‌به‌قدم. با مثال‌های واقعی، امن یاد بگیرید.">
+          Beginner-friendly cybersecurity training for Afghans worldwide — practical, ethical, and step-by-step. Learn safely with real-life examples.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -453,7 +468,7 @@
           </div>
           <div class="text-center lg:text-left">
             <div class="text-2xl sm:text-3xl lg:text-4xl font-cyber font-bold stat-number mb-1" data-en="Hands-on" data-fa="عملی">Hands-on</div>
-            <div class="text-xs text-gray-500 uppercase tracking-wider" data-en="Practical Labs" data-fa="لابراتوار">Practical Labs</div>
+            <div class="text-xs text-gray-500 uppercase tracking-wider" data-en="Practical Labs" data-fa="لابراتوار عملی">Practical Labs</div>
           </div>
           <div class="text-center lg:text-left">
             <div class="text-2xl sm:text-3xl lg:text-4xl font-cyber font-bold stat-number mb-1" data-en="Start" data-fa="شروع">Start</div>
@@ -466,7 +481,7 @@
       <div class="order-1 lg:order-2 relative px-4 sm:px-0">
         <div class="luxury-frame float">
           <div class="luxury-frame-inner morph-container">
-            <img src="https://i.postimg.cc/1XkLGGQW/Chat-GPT-Image-Feb-24-2026-03-55-18-AM.png" alt="Your Photo" class="morph-image active" id="img1">
+            <img src="https://i.postimg.cc/1XkLGGQW/Chat-GPT-Image-Feb-24-2026-03-55-18-AM.png" alt="Parisa Tech" class="morph-image active" id="img1">
             <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&h=700&fit=crop" alt="Cyber Security" class="morph-image inactive" id="img2">
           </div>
         </div>
@@ -511,9 +526,9 @@
           <h3 class="text-lg sm:text-2xl font-cyber font-bold mb-3 sm:mb-4"
               data-en="PRACTICAL TRAINING" data-fa="آموزش عملی">PRACTICAL TRAINING</h3>
           <p class="text-gray-400 leading-relaxed text-sm sm:text-base"
-             data-en="Clear roadmap + hands-on labs. Built for beginners and future professionals."
-             data-fa="نقشه‌راه واضح + لابراتوار عملی. مناسب برای مبتدی‌ها و آینده‌ی حرفه‌ای.">
-            Clear roadmap + hands-on labs. Built for beginners and future professionals.
+             data-en="Clear learning roadmap + hands-on labs. Built for beginners and future professionals."
+             data-fa="نقشه‌راه واضح + لابراتوار عملی. ساخته‌شده برای مبتدی‌ها و آینده‌ی حرفه‌ای.">
+            Clear learning roadmap + hands-on labs. Built for beginners and future professionals.
           </p>
         </div>
 
@@ -523,11 +538,11 @@
             <i class="fas fa-flag-checkered text-2xl sm:text-4xl text-pink-500"></i>
           </div>
           <h3 class="text-lg sm:text-2xl font-cyber font-bold mb-3 sm:mb-4 neon-pink"
-              data-en="SAFE CTF CHALLENGES" data-fa="چالش‌های امن CTF">SAFE CTF CHALLENGES</h3>
+              data-en="SAFE CHALLENGES" data-fa="چالش‌های امن">SAFE CHALLENGES</h3>
           <p class="text-gray-400 leading-relaxed text-sm sm:text-base"
-             data-en="Train in a safe environment. Ethical learning only — no illegal content."
-             data-fa="تمرین در محیط امن. فقط آموزش اخلاقی — بدون محتوای غیرقانونی.">
-            Train in a safe environment. Ethical learning only — no illegal content.
+             data-en="Train your skills in a safe environment. Ethical learning only — no illegal content."
+             data-fa="تمرین مهارت‌ها در محیط امن. فقط آموزش اخلاقی — بدون محتوای غیرقانونی.">
+            Train your skills in a safe environment. Ethical learning only — no illegal content.
           </p>
         </div>
 
@@ -539,9 +554,9 @@
           <h3 class="text-lg sm:text-2xl font-cyber font-bold mb-3 sm:mb-4 text-purple-400" style="text-shadow:0 0 20px rgba(168,85,247,0.5)"
               data-en="SECURITY GUIDANCE" data-fa="راهنمایی امنیتی">SECURITY GUIDANCE</h3>
           <p class="text-gray-400 leading-relaxed text-sm sm:text-base"
-             data-en="Guidance for personal accounts & small projects (beta). More coming soon."
+             data-en="Guidance for personal accounts & small projects (beta). More services coming soon."
              data-fa="راهنمایی برای حساب‌های شخصی و پروژه‌های کوچک (بتا). خدمات بیشتر به‌زودی.">
-            Guidance for personal accounts & small projects (beta). More coming soon.
+            Guidance for personal accounts & small projects (beta). More services coming soon.
           </p>
         </div>
       </div>
@@ -578,9 +593,9 @@
             <h3 class="text-base sm:text-lg font-cyber font-bold mb-2 text-white group-hover:text-cyan-400 transition-colors"
                 data-en="Cyber Basics" data-fa="مبانی سایبر">Cyber Basics</h3>
             <p class="text-gray-500 text-xs sm:text-sm mb-4"
-               data-en="Start from zero: internet, OS, accounts security, privacy, and safe habits."
+               data-en="Start from zero: internet, OS, account security, privacy, and safe habits."
                data-fa="شروع از صفر: اینترنت، سیستم، امنیت حساب‌ها، حریم خصوصی و عادت‌های امن.">
-              Start from zero: internet, OS, accounts security, privacy, and safe habits.
+              Start from zero: internet, OS, account security, privacy, and safe habits.
             </p>
             <div class="flex items-center justify-between pt-4 border-t border-white/10">
               <span class="text-xs text-gray-500"><i class="fas fa-clock ml-1"></i> <span data-en="4 Weeks" data-fa="۴ هفته">4 Weeks</span></span>
@@ -644,9 +659,9 @@
             <h3 class="text-base sm:text-lg font-cyber font-bold mb-2 text-white group-hover:text-orange-400 transition-colors"
                 data-en="Career Roadmap" data-fa="نقشه مسیر کار">Career Roadmap</h3>
             <p class="text-gray-500 text-xs sm:text-sm mb-4"
-               data-en="How to build portfolio, CV, labs, and prepare for entry-level cyber jobs."
-               data-fa="ساخت پورتفولیو، رزومه، لابراتوارها و آمادگی برای کارهای ابتدایی سایبر.">
-              How to build portfolio, CV, labs, and prepare for entry-level cyber jobs.
+               data-en="Build a portfolio, CV, and prepare for entry-level cyber roles."
+               data-fa="ساخت پورتفولیو، رزومه و آمادگی برای نقش‌های ابتدایی سایبر.">
+              Build a portfolio, CV, and prepare for entry-level cyber roles.
             </p>
             <div class="flex items-center justify-between pt-4 border-t border-white/10">
               <span class="text-xs text-gray-500"><i class="fas fa-clock ml-1"></i> <span data-en="3 Weeks" data-fa="۳ هفته">3 Weeks</span></span>
@@ -664,22 +679,22 @@
       <div class="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
         <div class="order-2 lg:order-1">
           <span class="text-cyan-400 font-cyber text-xs sm:text-sm tracking-[0.5em] block mb-4"
-                data-en="WHO WE ARE" data-fa="ما کیستیم">WHO WE ARE</span>
+                data-en="WHO WE ARE" data-fa="ما کی هستیم">WHO WE ARE</span>
 
           <h2 class="text-4xl sm:text-5xl lg:text-6xl font-cyber font-bold mb-6 sm:mb-8">
             <span class="text-white">PARISA</span> <span class="neon-cyan">TECH</span>
           </h2>
 
           <p class="text-gray-300 leading-relaxed mb-4 sm:mb-6 text-base sm:text-xl font-light"
-             data-en="Parisa Tech is a cybersecurity learning community focused on English & Dari. Simple, practical, and respectful education for real life and real careers."
-             data-fa="Parisa Tech یک جامعه آموزشی امنیت سایبری است با تمرکز روی انگلیسی و دری. ساده، عملی و مناسب برای زندگی و کار.">
-            Parsia Tech is a cybersecurity learning community focused on English & Dari. Simple, practical, and respectful education for real life and real careers.
+             data-en="Parisa Tech is a cybersecurity learning community for Afghans worldwide. Practical, beginner-friendly, and ethical education for real life and real careers."
+             data-fa="Parisa Tech یک جامعه آموزشی امنیت سایبری برای افغان‌ها در سراسر جهان است. آموزش ساده، عملی و اخلاقی برای زندگی و مسیر کاری.">
+            Parisa Tech is a cybersecurity learning community for Afghans worldwide. Practical, beginner-friendly, and ethical education for real life and real careers.
           </p>
 
           <p class="text-gray-400 leading-relaxed mb-8 sm:mb-10 text-sm sm:text-base"
-             data-en="Our mission: make cybersecurity education accessible for Afghans worldwide — step by step, from zero."
-             data-fa="ماموریت ما: دسترسی آسان آموزش سایبر برای افغان‌ها در سراسر جهان — از صفر، قدم‌به‌قدم.">
-            Our mission: make cybersecurity education accessible for Afghans worldwide — step by step, from zero.
+             data-en="Mission: make cybersecurity education accessible — step by step, from zero."
+             data-fa="ماموریت: دسترسی آسان به آموزش امنیت سایبری — از صفر، قدم‌به‌قدم.">
+            Mission: make cybersecurity education accessible — step by step, from zero.
           </p>
 
           <div class="grid grid-cols-2 gap-4 sm:gap-8">
@@ -737,15 +752,9 @@
         </button>
 
         <a class="luxury-btn border-pink-500 text-pink-500 text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-6 inline-flex items-center justify-center"
-           href="https://t.me/parisa_tech_c" target="_blank" rel="noopener">
+           href="https://t.me/parisa_tech_corp" target="_blank" rel="noopener" id="telegramMainLink">
           <i class="fab fa-telegram ml-2 sm:ml-3 text-lg sm:text-2xl"></i>
-          <span data-en="OPEN DARI TELEGRAM" data-fa="تلگرام دری">OPEN DARI TELEGRAM</span>
-        </a>
-
-        <a class="luxury-btn border-cyan-500 text-cyan-400 text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-6 inline-flex items-center justify-center"
-           href="https://t.me/parisa_tech_corp" target="_blank" rel="noopener">
-          <i class="fab fa-telegram ml-2 sm:ml-3 text-lg sm:text-2xl"></i>
-          <span data-en="OPEN ENGLISH TELEGRAM" data-fa="تلگرام انگلیسی">OPEN ENGLISH TELEGRAM</span>
+          <span data-en="OPEN TELEGRAM" data-fa="بازکردن تلگرام">OPEN TELEGRAM</span>
         </a>
       </div>
     </div>
@@ -781,7 +790,7 @@
 
             <div class="flex items-center gap-4 sm:gap-6 group">
               <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl border border-cyan-400/30 flex items-center justify-center group-hover:border-cyan-400 group-hover:bg-cyan-400/10 transition-all" style="box-shadow: 0 0 20px rgba(0,255,249,0.2);">
-                <i class="fab fa-telegram text-cyan-400 text-lg sm:text-2xl"></i>
+                <i class="fas fa-globe text-cyan-400 text-lg sm:text-2xl"></i>
               </div>
               <div>
                 <div class="text-xs text-gray-500 uppercase tracking-wider mb-1" data-en="Telegram (English)" data-fa="تلگرام (انگلیسی)">Telegram (English)</div>
@@ -798,28 +807,28 @@
                 <div class="text-white text-base sm:text-lg" data-en="Global — Online" data-fa="جهانی — آنلاین">Global — Online</div>
               </div>
             </div>
+
           </div>
         </div>
 
         <div class="cyber-box p-6 sm:p-10">
           <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
 
-          <!-- ✅ CONNECTED FORM -->
-          <form class="space-y-4 sm:space-y-6" onsubmit="submitContact(event)">
+          <form class="space-y-4 sm:space-y-6" id="contactForm">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div>
                 <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2" data-en="Name" data-fa="نام">Name</label>
-                <input id="ct_name" type="text" class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors text-sm sm:text-base" required>
+                <input name="name" type="text" class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors text-sm sm:text-base" required>
               </div>
               <div>
                 <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2" data-en="Telegram ID" data-fa="آیدی تلگرام">Telegram ID</label>
-                <input id="ct_telegram" type="text" placeholder="@username" class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors text-sm sm:text-base" required>
+                <input name="telegram" type="text" placeholder="@username" class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors text-sm sm:text-base" required>
               </div>
             </div>
 
             <div>
               <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2" data-en="Message" data-fa="پیام">Message</label>
-              <textarea id="ct_message" rows="4" class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors resize-none text-sm sm:text-base" required></textarea>
+              <textarea name="message" rows="4" class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors resize-none text-sm sm:text-base" required></textarea>
             </div>
 
             <button type="submit" class="luxury-btn w-full text-sm sm:text-base py-4">
@@ -839,9 +848,151 @@
     </div>
   </section>
 
+  <!-- ✅ Policies -->
+  <section id="policies" class="py-16 sm:py-28 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10 sm:mb-14">
+        <span class="text-cyan-400 font-cyber text-xs sm:text-sm tracking-[0.5em] block mb-4"
+              data-en="TRANSPARENCY" data-fa="شفافیت">TRANSPARENCY</span>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-cyber font-bold mb-6">
+          <span class="text-white" data-en="OUR" data-fa="پالیسی‌های">OUR</span>
+          <span class="neon-cyan" data-en="POLICIES" data-fa="ما">POLICIES</span>
+        </h2>
+        <div class="w-24 sm:w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-6">
+        <!-- Disclaimer -->
+        <div id="disclaimer" class="policy-card p-6 sm:p-8">
+          <h3 class="font-cyber text-lg sm:text-xl font-bold mb-4 neon-cyan"
+              data-en="DISCLAIMER (EDUCATIONAL USE)" data-fa="سلب مسئولیت (صرفاً آموزشی)">DISCLAIMER (EDUCATIONAL USE)</h3>
+          <ul class="text-gray-300 text-sm sm:text-base space-y-3">
+            <li data-en="All Parisa Tech materials are provided strictly for educational and defensive purposes."
+                data-fa="تمام آموزش‌های Parisa Tech فقط برای اهداف آموزشی و دفاعی ارائه می‌شود.">
+              All Parisa Tech materials are provided strictly for educational and defensive purposes.
+            </li>
+            <li data-en="We do not teach or encourage illegal hacking, unauthorized access, or harm to others."
+                data-fa="ما هیچ نوع هک غیرقانونی، نفوذ بدون اجازه یا آسیب‌رسانی را آموزش یا تشویق نمی‌کنیم.">
+              We do not teach or encourage illegal hacking, unauthorized access, or harm to others.
+            </li>
+            <li data-en="Use of any information must comply with applicable laws and require proper authorization."
+                data-fa="استفاده از مطالب باید مطابق قوانین محل شما و با اجازه قانونی باشد.">
+              Use of any information must comply with applicable laws and require proper authorization.
+            </li>
+            <li data-en="Users are solely responsible for how they use the content."
+                data-fa="مسئولیت هرگونه استفاده نادرست از محتوا بر عهده کاربر است.">
+              Users are solely responsible for how they use the content.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Terms -->
+        <div id="terms" class="policy-card p-6 sm:p-8">
+          <h3 class="font-cyber text-lg sm:text-xl font-bold mb-4 neon-pink"
+              data-en="TERMS OF SERVICE" data-fa="شرایط استفاده">TERMS OF SERVICE</h3>
+          <ul class="text-gray-300 text-sm sm:text-base space-y-3">
+            <li data-en="By using this website/Telegram, you agree the content is educational only."
+                data-fa="با استفاده از وب‌سایت/تلگرام، می‌پذیرید که محتوا صرفاً آموزشی است.">
+              By using this website/Telegram, you agree the content is educational only.
+            </li>
+            <li data-en="Illegal or harmful use is prohibited and may result in access termination."
+                data-fa="استفاده غیرقانونی یا آسیب‌رسان ممنوع است و ممکن است دسترسی قطع شود.">
+              Illegal or harmful use is prohibited and may result in access termination.
+            </li>
+            <li data-en="We may update content and policies at any time."
+                data-fa="ما حق داریم محتوا و پالیسی‌ها را هر زمان تغییر دهیم.">
+              We may update content and policies at any time.
+            </li>
+            <li data-en="We do not guarantee jobs or specific outcomes; progress depends on your effort."
+                data-fa="ما ضمانت شغل/نتیجه قطعی نمی‌دهیم؛ نتیجه به تلاش و تمرین شما بستگی دارد.">
+              We do not guarantee jobs or specific outcomes; progress depends on your effort.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Privacy -->
+        <div id="privacy" class="policy-card p-6 sm:p-8">
+          <h3 class="font-cyber text-lg sm:text-xl font-bold mb-4 text-purple-300"
+              data-en="PRIVACY POLICY" data-fa="حریم خصوصی">PRIVACY POLICY</h3>
+          <ul class="text-gray-300 text-sm sm:text-base space-y-3">
+            <li data-en="We only collect what you submit (e.g., name and Telegram ID)."
+                data-fa="ما فقط اطلاعاتی را جمع می‌کنیم که شما در فورم وارد می‌کنید (مثل نام و آیدی تلگرام).">
+              We only collect what you submit (e.g., name and Telegram ID).
+            </li>
+            <li data-en="This data is used only to contact you and provide updates via Telegram."
+                data-fa="این اطلاعات فقط برای ارتباط و ارسال معلومات در تلگرام استفاده می‌شود.">
+              This data is used only to contact you and provide updates via Telegram.
+            </li>
+            <li data-en="We do not sell or share your data with third parties."
+                data-fa="ما اطلاعات شما را نمی‌فروشیم و با شخص سوم شریک نمی‌کنیم.">
+              We do not sell or share your data with third parties.
+            </li>
+            <li data-en="You can request deletion of your data anytime via Telegram."
+                data-fa="شما هر زمان می‌توانید درخواست حذف اطلاعات خود را بدهید (از طریق تلگرام).">
+              You can request deletion of your data anytime via Telegram.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center text-gray-500 text-xs sm:text-sm">
+        <span data-en="Last updated:" data-fa="آخرین بروزرسانی:">Last updated:</span>
+        <span class="text-gray-400">2026-02-27</span>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="bg-black border-t border-white/10 pt-12 sm:pt-20 pb-6 sm:pb-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12 sm:mb-16">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 sm:gap-4 mb-6">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl border-2 border-cyan-400 flex items-center justify-center" style="box-shadow: 0 0 20px rgba(0,255,249,0.3);">
+              <i class="fas fa-shield-virus text-cyan-400 text-xl sm:text-2xl"></i>
+            </div>
+            <div>
+              <span class="font-cyber text-2xl sm:text-3xl font-bold tracking-widest neon-cyan">PARISA</span>
+              <span class="font-cyber text-2xl sm:text-3xl font-bold tracking-widest text-white ml-1 sm:ml-2">TECH</span>
+            </div>
+          </div>
+
+          <p class="text-gray-500 leading-relaxed max-w-md mb-6 sm:mb-8 text-sm sm:text-base"
+             data-en="Cybersecurity training community for Afghans worldwide — practical, beginner-friendly, and ethical."
+             data-fa="جامعه آموزش امنیت سایبری برای افغان‌ها در سراسر جهان — عملی، ساده و اخلاقی.">
+            Cybersecurity training community for Afghans worldwide — practical, beginner-friendly, and ethical.
+          </p>
+
+          <div class="flex gap-3 sm:gap-4">
+            <a href="https://t.me/parisa_tech_c" target="_blank" rel="noopener"
+               class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl border border-gray-800 flex items-center justify-center hover:border-cyan-400 hover:text-cyan-400 transition-all"
+               style="box-shadow: 0 0 20px rgba(0,255,249,0.2);">
+              <i class="fab fa-telegram text-lg sm:text-2xl"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-cyber text-sm tracking-wider mb-4 sm:mb-6 text-cyan-400" data-en="QUICK LINKS" data-fa="لینک‌های سریع">QUICK LINKS</h4>
+          <ul class="space-y-2 sm:space-y-3 text-gray-500 text-sm sm:text-base">
+            <li><a href="#courses" class="hover:text-white transition-colors" data-en="Courses" data-fa="دوره‌ها">Courses</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors" data-en="Services" data-fa="خدمات">Services</a></li>
+            <li><a href="#about" class="hover:text-white transition-colors" data-en="About" data-fa="درباره">About</a></li>
+            <li><a href="#contact" class="hover:text-white transition-colors" data-en="Contact" data-fa="تماس">Contact</a></li>
+            <li><a href="#policies" class="hover:text-white transition-colors" data-en="Policies" data-fa="پالیسی‌ها">Policies</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-cyber text-sm tracking-wider mb-4 sm:mb-6 text-pink-500" data-en="LEGAL" data-fa="قانونی">LEGAL</h4>
+          <ul class="space-y-2 sm:space-y-3 text-gray-500 text-sm sm:text-base">
+            <li><a href="#privacy" class="hover:text-white transition-colors" data-en="Privacy Policy" data-fa="حریم خصوصی">Privacy Policy</a></li>
+            <li><a href="#terms" class="hover:text-white transition-colors" data-en="Terms of Service" data-fa="شرایط استفاده">Terms of Service</a></li>
+            <li><a href="#disclaimer" class="hover:text-white transition-colors" data-en="Disclaimer" data-fa="سلب مسئولیت">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
 
       <div class="border-t border-white/10 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="text-gray-600 text-xs sm:text-sm">© 2026 Parisa Tech. <span data-en="All rights reserved." data-fa="کلیه حقوق محفوظ است.">All rights reserved.</span></p>
@@ -853,7 +1004,7 @@
     </div>
   </footer>
 
-  <!-- Modal (Waitlist) -->
+  <!-- Modal -->
   <div id="modal" class="fixed inset-0 z-[100] hidden">
     <div class="absolute inset-0 bg-black/95 backdrop-blur-2xl" onclick="closeModal()"></div>
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md px-4">
@@ -874,33 +1025,14 @@
           Join the waitlist and get the free intro lesson + syllabus on Telegram.
         </p>
 
-        <!-- ✅ CONNECTED WAITLIST FORM -->
-        <form class="space-y-4 sm:space-y-6" onsubmit="submitWaitlist(event)">
+        <form class="space-y-4 sm:space-y-6" id="waitlistForm">
           <div>
             <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2" data-en="Full Name" data-fa="نام کامل">Full Name</label>
-            <input id="wl_name" type="text"
-              class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors"
-              required>
+            <input name="name" type="text" class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors" required>
           </div>
-
           <div>
             <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2" data-en="Telegram ID" data-fa="آیدی تلگرام">Telegram ID</label>
-            <input id="wl_telegram" type="text" placeholder="@username"
-              class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors"
-              required>
-          </div>
-
-          <div>
-            <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2" data-en="Goal" data-fa="هدف">Goal</label>
-            <input id="wl_goal" type="text" placeholder="Beginner / Career"
-              class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors"
-              required>
-          </div>
-
-          <div>
-            <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2" data-en="Country (Optional)" data-fa="کشور (اختیاری)">Country (Optional)</label>
-            <input id="wl_country" type="text" placeholder="Germany"
-              class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors">
+            <input name="telegram" type="text" placeholder="@username" class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors" required>
           </div>
 
           <button type="submit" class="luxury-btn w-full text-sm sm:text-base py-4 sm:py-5">
@@ -910,16 +1042,20 @@
         </form>
 
         <p class="text-center text-gray-500 text-sm mt-6 sm:mt-8">
-          <span data-en="Telegram (Dari):" data-fa="تلگرام (دری):">Telegram (Dari):</span>
+          <span data-en="Dari Telegram:" data-fa="تلگرام دری:">Dari Telegram:</span>
           <a class="text-cyan-400 hover:underline ml-1" href="https://t.me/parisa_tech_c" target="_blank" rel="noopener">@parisa_tech_c</a>
+          <span class="mx-2 text-gray-700">|</span>
+          <span data-en="English Telegram:" data-fa="تلگرام انگلیسی:">English Telegram:</span>
+          <a class="text-cyan-400 hover:underline ml-1" href="https://t.me/parisa_tech_corp" target="_blank" rel="noopener">@parisa_tech_corp</a>
         </p>
       </div>
     </div>
   </div>
 
   <script>
-    // ✅ Your Cloudflare Worker API URL (Telegram bridge)
-    const WORKER_URL = "https://super-violet-e0d9parisa-tech-api.erfanadeli24.workers.dev/";
+    // ✅ Telegram links per language
+    const TELEGRAM_EN = "https://t.me/parisa_tech_corp";
+    const TELEGRAM_FA = "https://t.me/parisa_tech_c";
 
     // Mobile Menu Toggle
     function toggleMenu() {
@@ -931,7 +1067,7 @@
       hamburger.classList.toggle('active');
     }
 
-    // Language Switching (EN / FA only)
+    // Language Switching (EN default)
     function setLang(lang, btnEl) {
       document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
       if (btnEl) btnEl.classList.add('active');
@@ -941,6 +1077,7 @@
         else el.textContent = el.getAttribute('data-fa');
       });
 
+      // RTL direction for fa
       if (lang === 'fa') {
         document.body.classList.add('rtl');
         document.documentElement.setAttribute('dir', 'rtl');
@@ -948,6 +1085,10 @@
         document.body.classList.remove('rtl');
         document.documentElement.setAttribute('dir', 'ltr');
       }
+
+      // Update main telegram CTA link
+      const telegramMain = document.getElementById("telegramMainLink");
+      if (telegramMain) telegramMain.href = (lang === 'fa') ? TELEGRAM_FA : TELEGRAM_EN;
     }
 
     // Modal
@@ -978,83 +1119,21 @@
       }
     }, 4000);
 
-    // Worker POST helper
-    async function postToWorker(payload) {
-      const res = await fetch(WORKER_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      let data = null;
-      try { data = await res.json(); } catch (e) {}
-
-      if (!res.ok || !data || !data.ok) {
-        console.log("Worker error:", data);
-        throw new Error("Worker request failed");
-      }
-      return data;
+    // ✅ Forms: for now, show message (we will connect to Telegram bot later)
+    function showThanks() {
+      alert("Thanks! We received your message. We will reply on Telegram soon.");
     }
-
-    // Waitlist submit (Modal)
-    async function submitWaitlist(e) {
+    document.getElementById("contactForm")?.addEventListener("submit", function(e){
       e.preventDefault();
-
-      const name = document.getElementById("wl_name")?.value?.trim();
-      const telegram = document.getElementById("wl_telegram")?.value?.trim();
-      const goal = document.getElementById("wl_goal")?.value?.trim();
-      const country = document.getElementById("wl_country")?.value?.trim();
-
-      if (!name || !telegram || !goal) {
-        alert("لطفاً نام، آیدی تلگرام و هدف را وارد کنید.");
-        return;
-      }
-
-      const tg = telegram.startsWith("@") ? telegram : "@" + telegram;
-
-      try {
-        await postToWorker({
-          name: name,
-          goal: goal + " | TG: " + tg,
-          country: country || "",
-        });
-
-        alert("✅ ثبت شد! پیام شما به تلگرام ادمین ارسال شد.");
-        e.target.reset();
-        closeModal();
-      } catch (err) {
-        alert("❌ مشکل پیش آمد. دوباره تلاش کنید.");
-      }
-    }
-
-    // Contact submit (Contact section)
-    async function submitContact(e) {
+      showThanks();
+      e.target.reset();
+    });
+    document.getElementById("waitlistForm")?.addEventListener("submit", function(e){
       e.preventDefault();
-
-      const name = document.getElementById("ct_name")?.value?.trim();
-      const telegram = document.getElementById("ct_telegram")?.value?.trim();
-      const msg = document.getElementById("ct_message")?.value?.trim();
-
-      if (!name || !telegram || !msg) {
-        alert("لطفاً نام، آیدی تلگرام و پیام را وارد کنید.");
-        return;
-      }
-
-      const tg = telegram.startsWith("@") ? telegram : "@" + telegram;
-
-      try {
-        await postToWorker({
-          name: name,
-          goal: "CONTACT | TG: " + tg + " | MSG: " + msg,
-          country: "",
-        });
-
-        alert("✅ ارسال شد! به زودی در تلگرام جواب می‌دهیم.");
-        e.target.reset();
-      } catch (err) {
-        alert("❌ ارسال نشد. دوباره تلاش کنید.");
-      }
-    }
+      showThanks();
+      closeModal();
+      e.target.reset();
+    });
 
     // Matrix Rain
     const canvas = document.getElementById('matrix');
@@ -1098,8 +1177,10 @@
       }
     });
 
-    // Default language = English
-    setLang('en', document.querySelector('.lang-btn'));
+    // ✅ Default language is EN at load
+    window.addEventListener("DOMContentLoaded", () => {
+      setLang('en', document.querySelector('.lang-btn'));
+    });
   </script>
 </body>
 </html>

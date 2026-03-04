@@ -2,404 +2,324 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Parisa Tech | Cybersecurity Excellence</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Parisa Tech | Cybersecurity</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&family=Vazirmatn:wght@300;500;700&display=swap');
 
-    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Rajdhani', sans-serif;
-      background: #000;
-      color: #fff;
-      overflow-x: hidden;
-      min-height: 100vh;
+    :root{
+      --c:#00fff9;
+      --p:#ff00c1;
+      --bg:#000;
+      --glass: rgba(10,10,20,.65);
+      --border: rgba(255,255,255,.12);
     }
-    .font-cyber { font-family: 'Orbitron', monospace; }
 
-    /* ✅ Dari RTL */
-    body.rtl, body.rtl [data-en] { font-family: 'Vazirmatn','Rajdhani', sans-serif; }
-    .hero-title, .hero-subtitle { line-height: 1.12 !important; padding-bottom: 10px; display: inline-block; }
-    [data-en] { line-height: 1.65; }
-
-    .luxury-bg {
+    *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+    body{
+      margin:0;
+      font-family: Rajdhani, sans-serif;
       background:
-        radial-gradient(ellipse at 20% 20%, rgba(0, 255, 249, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(255, 0, 193, 0.05) 0%, transparent 50%),
-        #000000;
+        radial-gradient(ellipse at 20% 20%, rgba(0,255,249,.09) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 80%, rgba(255,0,193,.07) 0%, transparent 55%),
+        #000;
+      color:#fff;
+      overflow-x:hidden;
+      min-height:100vh;
     }
-
-    /* Glitch */
-    .glitch-text { position: relative; animation: glitch-skew 3s infinite linear alternate-reverse; }
-    .glitch-text::before, .glitch-text::after {
-      content: attr(data-text);
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: #000;
-    }
-    .glitch-text::before {
-      left: 2px; text-shadow: -2px 0 #ff00c1;
-      clip: rect(24px, 550px, 90px, 0);
-      animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
-    }
-    .glitch-text::after {
-      left: -2px; text-shadow: -2px 0 #00fff9;
-      clip: rect(85px, 550px, 140px, 0);
-      animation: glitch-anim-2 3s infinite linear alternate-reverse;
-    }
-    @keyframes glitch-anim-1 {
-      0% { clip: rect(20px, 9999px, 15px, 0); }
-      20% { clip: rect(50px, 9999px, 80px, 0); }
-      40% { clip: rect(10px, 9999px, 55px, 0); }
-      60% { clip: rect(90px, 9999px, 120px, 0); }
-      80% { clip: rect(30px, 9999px, 60px, 0); }
-      100% { clip: rect(70px, 9999px, 100px, 0); }
-    }
-    @keyframes glitch-anim-2 {
-      0% { clip: rect(60px, 9999px, 90px, 0); }
-      20% { clip: rect(10px, 9999px, 40px, 0); }
-      40% { clip: rect(80px, 9999px, 110px, 0); }
-      60% { clip: rect(20px, 9999px, 50px, 0); }
-      80% { clip: rect(100px, 9999px, 130px, 0); }
-      100% { clip: rect(40px, 9999px, 70px, 0); }
-    }
-    @keyframes glitch-skew {
-      0% { transform: skew(0deg); }
-      10% { transform: skew(-1deg); }
-      20% { transform: skew(1deg); }
-      30% { transform: skew(0deg); }
-      100% { transform: skew(0deg); }
-    }
+    body.rtl{font-family: Vazirmatn, Rajdhani, sans-serif;}
+    .font-cyber{font-family: Orbitron, monospace;}
+    html[dir="rtl"] .rtl-flip{direction:rtl;}
 
     /* Scanlines */
-    .scanlines {
-      position: fixed; top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15) 1px, transparent 1px, transparent 3px);
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.2;
+    .scanlines{
+      position:fixed; inset:0;
+      background: repeating-linear-gradient(0deg, rgba(0,0,0,.18), rgba(0,0,0,.18) 1px, transparent 1px, transparent 3px);
+      pointer-events:none; z-index:9999; opacity:.22;
     }
 
-    /* Matrix */
-    .matrix-bg {
-      position: fixed; top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: 0;
-      opacity: 0.25;
-      pointer-events: none;
-    }
-
-    /* Luxury Frame */
-    .luxury-frame {
-      position: relative;
-      background: linear-gradient(135deg, rgba(0,255,249,0.2) 0%, rgba(255,0,193,0.2) 100%);
-      padding: 2px;
-      border-radius: 16px;
-      box-shadow: 0 0 40px rgba(0,255,249,0.2), 0 0 80px rgba(255,0,193,0.1);
-    }
-    .luxury-frame-inner {
-      position: relative;
-      border-radius: 14px;
-      overflow: hidden;
-      background: #000;
-    }
-    .luxury-frame::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: 18px;
-      background: linear-gradient(45deg, #00fff9, #ff00c1, #00fff9, #ff00c1);
-      z-index: -1;
-      animation: border-glow 3s linear infinite;
-      background-size: 400% 400%;
-    }
-    @keyframes border-glow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Media container */
-    .media-container { position: relative; width: 100%; height: 400px; }
-    @media (min-width: 768px) { .media-container { height: 500px; } }
-    @media (min-width: 1024px) { .media-container { height: 550px; } }
-
-    /* ✅ VIDEO: no controls, autoplay, loop, cover */
-    .hero-video {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      border-radius: 14px;
-      filter: contrast(1.05) brightness(0.95) saturate(1.05);
-      transform: scale(1.01);
-    }
-    /* small overlay gradient for luxury look */
-    .video-overlay {
-      position: absolute; inset: 0;
-      background: radial-gradient(circle at 30% 30%, rgba(0,255,249,0.12), transparent 55%),
-                  radial-gradient(circle at 80% 80%, rgba(255,0,193,0.10), transparent 55%),
-                  linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.55));
-      pointer-events: none;
-    }
-
-    /* Cyber Box */
-    .cyber-box {
-      position: relative;
-      background: rgba(10, 10, 20, 0.8);
-      border: 1px solid rgba(0, 255, 249, 0.3);
-      backdrop-filter: blur(20px);
-      border-radius: 12px;
-    }
-    .cyber-box::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: 13px;
-      background: linear-gradient(45deg, #00fff9, #ff00c1, #00fff9, #ff00c1);
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.3s;
-      background-size: 300% 300%;
-      animation: gradient-shift 3s ease infinite;
-    }
-    @keyframes gradient-shift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .cyber-box:hover::before { opacity: 0.6; }
-
-    /* Corners */
-    .corner { position: absolute; width: 16px; height: 16px; border: 2px solid #00fff9; transition: all 0.3s; }
-    .corner-tl { top: -1px; left: -1px; border-right: 0; border-bottom: 0; border-radius: 12px 0 0 0; }
-    .corner-tr { top: -1px; right: -1px; border-left: 0; border-bottom: 0; border-radius: 0 12px 0 0; }
-    .corner-bl { bottom: -1px; left: -1px; border-right: 0; border-top: 0; border-radius: 0 0 0 12px; }
-    .corner-br { bottom: -1px; right: -1px; border-left: 0; border-top: 0; border-radius: 0 0 12px 0; }
+    /* Matrix canvas */
+    .matrix-bg{position:fixed; inset:0; z-index:0; opacity:.22; pointer-events:none;}
 
     /* Neon */
-    .neon-cyan { text-shadow: 0 0 10px rgba(0,255,249,0.8), 0 0 20px rgba(0,255,249,0.4); }
-    .neon-pink { text-shadow: 0 0 10px rgba(255,0,193,0.8), 0 0 20px rgba(255,0,193,0.4); }
+    .neon-cyan{text-shadow: 0 0 12px rgba(0,255,249,.7), 0 0 30px rgba(0,255,249,.25);}
+    .neon-pink{text-shadow: 0 0 12px rgba(255,0,193,.7), 0 0 30px rgba(255,0,193,.22);}
+
+    /* Nav */
+    .nav-link{
+      position:relative;
+      color:rgba(255,255,255,.72);
+      font-size:12px;
+      letter-spacing:1.5px;
+      padding:8px 0;
+      white-space:nowrap;
+      transition:.25s;
+    }
+    .nav-link:hover{color:#fff; text-shadow:0 0 18px rgba(255,255,255,.25);}
+    .nav-link:after{
+      content:""; position:absolute; left:0; bottom:0;
+      height:2px; width:0;
+      background: linear-gradient(90deg,var(--c),var(--p));
+      transition:.25s; border-radius:2px;
+    }
+    .nav-link:hover:after{width:100%;}
+
+    /* Glass box */
+    .cyber-box{
+      position:relative;
+      background: var(--glass);
+      border: 1px solid rgba(0,255,249,.22);
+      border-radius:14px;
+      backdrop-filter: blur(18px);
+      overflow:hidden;
+    }
+    .cyber-box:before{
+      content:"";
+      position:absolute; inset:-1px;
+      background: linear-gradient(45deg,var(--c),var(--p),var(--c));
+      opacity:.0;
+      transition:.35s;
+      filter: blur(10px);
+      z-index:-1;
+    }
+    .cyber-box:hover:before{opacity:.35;}
+
+    /* Luxury Frame (hero media) */
+    .luxury-frame{
+      position:relative;
+      border-radius:18px;
+      padding:2px;
+      background: linear-gradient(135deg, rgba(0,255,249,.35), rgba(255,0,193,.25));
+      box-shadow: 0 0 45px rgba(0,255,249,.16), 0 0 90px rgba(255,0,193,.10);
+    }
+    .luxury-frame-inner{
+      border-radius:16px;
+      overflow:hidden;
+      background:#000;
+      position:relative;
+      min-height: 420px;
+    }
+    @media(min-width:1024px){ .luxury-frame-inner{min-height: 540px;} }
+
+    .hero-video{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      transform: scale(1.02);
+      filter: contrast(1.07) brightness(.92) saturate(1.05);
+    }
+    .video-vignette{
+      position:absolute; inset:0;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(0,255,249,.13), transparent 58%),
+        radial-gradient(circle at 80% 80%, rgba(255,0,193,.12), transparent 58%),
+        linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.60));
+      pointer-events:none;
+    }
 
     /* Buttons */
-    .luxury-btn {
-      position: relative;
-      background: linear-gradient(135deg, rgba(0,255,249,0.1) 0%, rgba(255,0,193,0.1) 100%);
-      border: 1px solid rgba(0,255,249,0.5);
-      color: #00fff9;
-      padding: 12px 20px;
-      font-family: 'Orbitron', monospace;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: pointer;
-      overflow: hidden;
-      transition: all 0.4s;
-      border-radius: 8px;
+    .luxury-btn{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 22px;
+      border-radius:10px;
+      border:1px solid rgba(0,255,249,.55);
+      background: linear-gradient(135deg, rgba(0,255,249,.10), rgba(255,0,193,.10));
+      color: var(--c);
+      font-family: Orbitron, monospace;
+      font-size:12px;
+      letter-spacing:2.2px;
+      text-transform:uppercase;
+      transition:.35s;
+      overflow:hidden;
+      white-space:nowrap;
       backdrop-filter: blur(10px);
-      white-space: nowrap;
     }
-    @media (min-width: 768px) {
-      .luxury-btn { padding: 16px 28px; font-size: 12px; letter-spacing: 3px; }
+    .luxury-btn:before{
+      content:"";
+      position:absolute; top:0; left:-120%;
+      width:120%; height:100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+      transition:.65s;
     }
-    .luxury-btn::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.6s;
-    }
-    .luxury-btn:hover::before { left: 100%; }
-    .luxury-btn:hover {
-      background: linear-gradient(135deg, rgba(0,255,249,0.2) 0%, rgba(255,0,193,0.2) 100%);
-      box-shadow: 0 0 20px rgba(0,255,249,0.4);
+    .luxury-btn:hover:before{left:120%;}
+    .luxury-btn:hover{
       transform: translateY(-2px);
+      box-shadow: 0 0 22px rgba(0,255,249,.35);
+      background: linear-gradient(135deg, rgba(0,255,249,.18), rgba(255,0,193,.16));
+    }
+    .luxury-btn.pink{
+      border-color: rgba(255,0,193,.55);
+      color: var(--p);
+      box-shadow:none;
+    }
+    .luxury-btn.pink:hover{box-shadow: 0 0 22px rgba(255,0,193,.28);}
+
+    .lang-btn{
+      padding:7px 12px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.55);
+      color: rgba(255,255,255,.65);
+      font-size:11px;
+      font-family: Orbitron, monospace;
+      transition:.25s;
+      white-space:nowrap;
+    }
+    .lang-btn.active{
+      border-color: var(--c);
+      color: var(--c);
+      background: rgba(0,255,249,.14);
+      box-shadow: 0 0 16px rgba(0,255,249,.25);
     }
 
-    .lang-btn {
-      padding: 6px 10px;
-      border: 1px solid rgba(255,255,255,0.2);
-      background: rgba(0,0,0,0.5);
-      color: rgba(255,255,255,0.6);
-      font-size: 10px;
-      cursor: pointer;
-      transition: all 0.3s;
-      border-radius: 6px;
-      backdrop-filter: blur(10px);
-      white-space: nowrap;
+    /* Modal */
+    .modal-wrap{position:fixed; inset:0; display:none; z-index:200;}
+    .modal-wrap.show{display:block;}
+    .modal-back{position:absolute; inset:0; background:rgba(0,0,0,.86); backdrop-filter: blur(16px);}
+    .modal-card{
+      position:absolute;
+      left:50%; top:50%;
+      transform:translate(-50%,-50%);
+      width:min(92vw, 560px);
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(0,255,249,.25);
+      background: rgba(0,0,0,.92);
+      box-shadow: 0 0 50px rgba(0,255,249,.12), 0 0 85px rgba(255,0,193,.08);
     }
-    .lang-btn.active {
-      border-color: #00fff9;
-      color: #00fff9;
-      background: rgba(0,255,249,0.15);
-      box-shadow: 0 0 15px rgba(0,255,249,0.3);
+    .modal-head{
+      padding:18px 18px;
+      display:flex; align-items:center; justify-content:space-between;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(135deg, rgba(0,255,249,.08), rgba(255,0,193,.06));
     }
-
-    /* Nav (✅ smaller so it fits) */
-    .nav-link {
-      position: relative;
-      color: rgba(255,255,255,0.7);
-      font-size: 11px;
-      letter-spacing: 1.2px;
-      transition: all 0.3s;
-      padding: 6px 0;
-      white-space: nowrap;
+    .modal-body{padding:18px;}
+    .tabbar{
+      display:flex; gap:8px; flex-wrap:wrap;
+      margin:10px 0 14px;
     }
-    @media (min-width: 768px) { .nav-link { font-size: 12px; letter-spacing: 1.6px; } }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 0; height: 2px;
-      background: linear-gradient(90deg, #00fff9, #ff00c1);
-      transition: width 0.3s;
-      border-radius: 2px;
+    .tabbtn{
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.35);
+      color: rgba(255,255,255,.72);
+      font-size:12px;
+      cursor:pointer;
+      transition:.25s;
+      white-space:nowrap;
     }
-    .nav-link:hover { color: #fff; text-shadow: 0 0 15px rgba(255,255,255,0.5); }
-    .nav-link:hover::after { width: 100%; }
-
-    /* Mobile Menu */
-    .mobile-menu {
-      position: fixed;
-      top: 0; right: -100%;
-      width: 82%;
-      max-width: 320px;
-      height: 100vh;
-      background: rgba(0,0,0,0.95);
-      backdrop-filter: blur(20px);
-      z-index: 100;
-      transition: right 0.3s ease;
-      padding: 80px 26px;
-      border-left: 1px solid rgba(0,255,249,0.3);
-    }
-    .mobile-menu.active { right: 0; }
-    .mobile-menu-overlay {
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.8);
-      z-index: 99;
-      opacity: 0; visibility: hidden;
-      transition: all 0.3s;
-    }
-    .mobile-menu-overlay.active { opacity: 1; visibility: visible; }
-
-    /* Cards */
-    .course-card {
-      background: rgba(10,10,20,0.6);
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
-      border-radius: 12px;
-      overflow: hidden;
-      backdrop-filter: blur(10px);
-    }
-    .course-card:hover {
-      border-color: rgba(0,255,249,0.5);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,255,249,0.15);
+    .tabbtn.active{
+      border-color: rgba(0,255,249,.55);
+      color: var(--c);
+      background: rgba(0,255,249,.10);
+      box-shadow: 0 0 14px rgba(0,255,249,.18);
     }
 
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #000000; }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #00fff9, #ff00c1); border-radius: 3px; }
-
-    /* Float */
-    .float { animation: float 6s ease-in-out infinite; }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
+    /* Mobile menu */
+    .hamburger{display:flex; flex-direction:column; gap:5px; cursor:pointer;}
+    .hamburger span{width:26px; height:2px; background:var(--c); border-radius:2px; transition:.25s;}
+    .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+    .hamburger.active span:nth-child(2){opacity:0;}
+    .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+    .m-overlay{position:fixed; inset:0; background:rgba(0,0,0,.75); z-index:98; display:none;}
+    .m-overlay.show{display:block;}
+    .m-drawer{
+      position:fixed; top:0; right:-100%;
+      width:min(82vw,320px); height:100vh;
+      background: rgba(0,0,0,.94);
+      border-left:1px solid rgba(0,255,249,.22);
+      backdrop-filter: blur(18px);
+      z-index:99;
+      padding:78px 22px;
+      transition:.28s ease;
     }
-
-    /* Stats */
-    .stat-number {
-      background: linear-gradient(135deg, #fff 0%, #00fff9 50%, #ff00c1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* ✅ Mobile hero font tweaks */
-    @media (max-width: 640px) {
-      .hero-title { font-size: 3rem !important; line-height: 1.03 !important; }
-      .hero-subtitle { font-size: 1.9rem !important; line-height: 1.12 !important; }
-    }
-
-    /* Hamburger */
-    .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 101; }
-    .hamburger span { width: 25px; height: 2px; background: #00fff9; transition: all 0.3s; border-radius: 2px; }
-    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-    @media (min-width: 1024px) { .hamburger { display: none; } }
+    .m-drawer.show{right:0;}
   </style>
 </head>
 
-<body class="luxury-bg">
+<body>
   <div class="scanlines"></div>
   <canvas class="matrix-bg" id="matrix"></canvas>
 
-  <!-- Mobile Menu Overlay -->
-  <div class="mobile-menu-overlay" onclick="toggleMenu()"></div>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
+  <!-- Mobile menu -->
+  <div class="m-overlay" id="mOverlay" onclick="toggleMenu(false)"></div>
+  <div class="m-drawer" id="mDrawer">
     <div class="flex flex-col gap-6">
-      <a href="#home" class="nav-link font-cyber text-lg" onclick="toggleMenu()" data-en="HOME" data-fa="خانه">HOME</a>
-      <a href="#courses" class="nav-link font-cyber text-lg" onclick="toggleMenu()" data-en="COURSES" data-fa="دوره‌ها">COURSES</a>
-      <a href="#services" class="nav-link font-cyber text-lg" onclick="toggleMenu()" data-en="SERVICES" data-fa="خدمات">SERVICES</a>
-      <a href="#about" class="nav-link font-cyber text-lg" onclick="toggleMenu()" data-en="ABOUT" data-fa="درباره ما">ABOUT</a>
-      <a href="#contact" class="nav-link font-cyber text-lg" onclick="toggleMenu()" data-en="CONTACT" data-fa="تماس">CONTACT</a>
+      <a class="nav-link font-cyber text-lg" href="#home" onclick="toggleMenu(false)" data-en="HOME" data-fa="خانه">HOME</a>
+      <a class="nav-link font-cyber text-lg" href="#courses" onclick="toggleMenu(false)" data-en="COURSES" data-fa="دوره‌ها">COURSES</a>
+      <a class="nav-link font-cyber text-lg" href="#services" onclick="toggleMenu(false)" data-en="SERVICES" data-fa="خدمات">SERVICES</a>
+      <a class="nav-link font-cyber text-lg" href="#about" onclick="toggleMenu(false)" data-en="ABOUT" data-fa="درباره">ABOUT</a>
+      <a class="nav-link font-cyber text-lg" href="#contact" onclick="toggleMenu(false)" data-en="CONTACT" data-fa="تماس">CONTACT</a>
 
-      <div class="flex gap-2 mt-4">
-        <button class="lang-btn active font-cyber flex-1" onclick="setLang('en', this)">EN</button>
-        <button class="lang-btn font-cyber flex-1" onclick="setLang('fa', this)">دری</button>
+      <div class="flex gap-2 mt-2">
+        <button class="lang-btn active flex-1" onclick="setLang('en', this)">EN</button>
+        <button class="lang-btn flex-1" onclick="setLang('fa', this)">دری</button>
       </div>
+
+      <button class="luxury-btn mt-3" onclick="openModal('early')">
+        <span data-en="GET EARLY ACCESS" data-fa="دسترسی اولیه">GET EARLY ACCESS</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+
+      <button class="luxury-btn pink" onclick="openModal('policy')">
+        <span data-en="POLICY & SAFETY" data-fa="قوانین و امنیت">POLICY & SAFETY</span>
+        <i class="fa-solid fa-shield"></i>
+      </button>
     </div>
   </div>
 
-  <!-- Navigation -->
+  <!-- NAV -->
   <nav class="fixed w-full z-50 top-0 left-0 bg-black/80 backdrop-blur-2xl border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
       <div class="flex justify-between items-center">
 
-        <!-- Logo -->
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl border-2 border-cyan-400 flex items-center justify-center relative" style="box-shadow: 0 0 20px rgba(0,255,249,0.3);">
-            <i class="fas fa-shield-virus text-cyan-400 text-lg sm:text-xl"></i>
+          <div class="w-11 h-11 rounded-xl border-2 border-cyan-400 flex items-center justify-center" style="box-shadow:0 0 20px rgba(0,255,249,.30)">
+            <i class="fa-solid fa-shield-halved text-cyan-400"></i>
           </div>
-          <div>
-            <span class="font-cyber text-xl sm:text-2xl font-bold tracking-widest neon-cyan">PARISA</span>
-            <span class="font-cyber text-xl sm:text-2xl font-bold tracking-widest text-white ml-1 sm:ml-2">TECH</span>
+          <div class="leading-none">
+            <div class="font-cyber text-xl font-bold tracking-widest neon-cyan">PARISA <span class="text-white">TECH</span></div>
+            <div class="text-[10px] text-gray-500 tracking-[.35em]" data-en="CYBER TRAINING" data-fa="آموزش سایبر">CYBER TRAINING</div>
           </div>
         </div>
 
-        <!-- Desktop Navigation -->
         <div class="hidden lg:flex items-center gap-8">
-          <a href="#home" class="nav-link font-cyber" data-en="HOME" data-fa="خانه">HOME</a>
-          <a href="#courses" class="nav-link font-cyber" data-en="COURSES" data-fa="دوره‌ها">COURSES</a>
-          <a href="#services" class="nav-link font-cyber" data-en="SERVICES" data-fa="خدمات">SERVICES</a>
-          <a href="#about" class="nav-link font-cyber" data-en="ABOUT" data-fa="درباره ما">ABOUT</a>
-          <a href="#contact" class="nav-link font-cyber" data-en="CONTACT" data-fa="تماس">CONTACT</a>
+          <a class="nav-link font-cyber" href="#home" data-en="HOME" data-fa="خانه">HOME</a>
+          <a class="nav-link font-cyber" href="#courses" data-en="COURSES" data-fa="دوره‌ها">COURSES</a>
+          <a class="nav-link font-cyber" href="#services" data-en="SERVICES" data-fa="خدمات">SERVICES</a>
+          <a class="nav-link font-cyber" href="#about" data-en="ABOUT" data-fa="درباره">ABOUT</a>
+          <a class="nav-link font-cyber" href="#contact" data-en="CONTACT" data-fa="تماس">CONTACT</a>
         </div>
 
-        <!-- Desktop Language & CTA -->
         <div class="hidden lg:flex items-center gap-3">
-          <div class="flex gap-1">
-            <button class="lang-btn active font-cyber" onclick="setLang('en', this)">EN</button>
-            <button class="lang-btn font-cyber" onclick="setLang('fa', this)">دری</button>
+          <div class="flex gap-2">
+            <button class="lang-btn active" onclick="setLang('en', this)">EN</button>
+            <button class="lang-btn" onclick="setLang('fa', this)">دری</button>
           </div>
-          <button class="luxury-btn" onclick="showModal()" data-en="GET EARLY ACCESS" data-fa="دسترسی اولیه">GET EARLY ACCESS</button>
+
+          <button class="luxury-btn" onclick="openModal('early')">
+            <span data-en="GET EARLY ACCESS" data-fa="دسترسی اولیه">GET EARLY ACCESS</span>
+          </button>
+
+          <button class="luxury-btn pink" onclick="openModal('policy')">
+            <span data-en="POLICY" data-fa="پالیسی">POLICY</span>
+          </button>
         </div>
 
-        <!-- Mobile Controls -->
         <div class="flex lg:hidden items-center gap-3">
-          <button class="luxury-btn text-xs px-4 py-2" onclick="showModal()" data-en="JOIN" data-fa="عضویت">JOIN</button>
-          <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+          <button class="luxury-btn px-4 py-2 text-[11px]" onclick="openModal('early')">
+            <span data-en="JOIN" data-fa="عضویت">JOIN</span>
+          </button>
+          <div class="hamburger" id="hamburger" onclick="toggleMenu()">
             <span></span><span></span><span></span>
           </div>
         </div>
@@ -408,732 +328,547 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex items-center justify-center relative pt-20 sm:pt-24 overflow-hidden">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] sm:w-[1000px] sm:h-[1000px] bg-cyan-500/5 rounded-full blur-[200px]"></div>
+  <!-- HERO -->
+  <section id="home" class="min-h-screen pt-24 sm:pt-28 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center relative z-10">
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
-
-      <!-- Text Content -->
-      <div class="order-2 lg:order-1 text-center lg:text-left">
-        <div class="inline-flex items-center gap-2 sm:gap-3 px-4 py-2 border border-cyan-500/30 rounded-full mb-6 bg-black/40 backdrop-blur-xl">
-          <span class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style="box-shadow: 0 0 10px rgba(0,255,249,0.8);"></span>
-          <span class="text-cyan-400 font-cyber text-xs tracking-[0.2em]"
-                data-en="CYBER TRAINING (ENGLISH & DARI)"
-                data-fa="آموزش سایبر (انگلیسی و دری)">CYBER TRAINING (ENGLISH & DARI)</span>
+      <div class="text-center lg:text-left">
+        <div class="inline-flex items-center gap-3 px-4 py-2 border border-cyan-500/25 rounded-full mb-6 bg-black/40 backdrop-blur-xl">
+          <span class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style="box-shadow:0 0 10px rgba(0,255,249,.8)"></span>
+          <span class="text-cyan-400 font-cyber text-xs tracking-[0.25em]" data-en="CYBER TRAINING (ENGLISH & DARI)" data-fa="آموزش سایبر (انگلیسی و دری)">CYBER TRAINING (ENGLISH & DARI)</span>
         </div>
 
-        <div class="mb-6 sm:mb-8">
-          <h1 class="hero-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-cyber leading-none glitch-text mb-2 sm:mb-4" data-text="MASTER">MASTER</h1>
-          <h2 class="hero-subtitle text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-cyber text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500"
-              data-en="CYBERSECURITY"
-              data-fa="امنیت سایبری">CYBERSECURITY</h2>
-        </div>
+        <h1 class="font-cyber font-black leading-none text-[52px] sm:text-[70px] lg:text-[82px] neon-cyan">
+          <span data-en="MASTER" data-fa="مستر">MASTER</span>
+        </h1>
+        <h2 class="font-cyber font-black leading-none text-[34px] sm:text-[46px] lg:text-[56px] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 mt-2">
+          <span data-en="CYBERSECURITY" data-fa="امنیت سایبری">CYBERSECURITY</span>
+        </h2>
 
-        <p class="text-gray-400 text-base sm:text-lg mb-8 sm:mb-10 max-w-xl leading-relaxed mx-auto lg:mx-0"
+        <p class="text-gray-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mt-6 leading-relaxed"
            data-en="Beginner-friendly cybersecurity learning — practical, ethical, and career-focused. Learn safely, step by step."
            data-fa="آموزش امنیت سایبری — ساده برای مبتدی‌ها، عملی، اخلاقی و مسیرمحور برای کار. قدم‌به‌قدم و امن یاد بگیرید.">
           Beginner-friendly cybersecurity learning — practical, ethical, and career-focused. Learn safely, step by step.
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-          <button class="luxury-btn group w-full sm:w-auto" onclick="showModal()">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-8">
+          <button class="luxury-btn" onclick="openModal('early')">
             <span data-en="GET EARLY ACCESS" data-fa="دسترسی اولیه">GET EARLY ACCESS</span>
-            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+            <i class="fa-solid fa-arrow-right"></i>
           </button>
-          <button class="luxury-btn border-pink-500 text-pink-500 w-full sm:w-auto"
-                  onclick="document.getElementById('courses').scrollIntoView({behavior:'smooth'})">
-            <i class="fas fa-play ml-2"></i>
+          <button class="luxury-btn pink" onclick="document.getElementById('courses').scrollIntoView({behavior:'smooth'})">
+            <i class="fa-solid fa-play"></i>
             <span data-en="EXPLORE PATHS" data-fa="مشاهده مسیرها">EXPLORE PATHS</span>
           </button>
         </div>
 
-        <!-- Stats -->
-        <div class="grid grid-cols-3 gap-4 sm:gap-8 mt-10 sm:mt-16 pt-6 sm:pt-8 border-t border-white/10">
-          <div class="text-center lg:text-left">
-            <div class="text-2xl sm:text-3xl lg:text-4xl font-cyber font-bold stat-number mb-1" data-en="Weekly" data-fa="هفتگی">Weekly</div>
-            <div class="text-xs text-gray-500 uppercase tracking-wider" data-en="Live Q&A" data-fa="پرسش زنده">Live Q&A</div>
-          </div>
-          <div class="text-center lg:text-left">
-            <div class="text-2xl sm:text-3xl lg:text-4xl font-cyber font-bold stat-number mb-1" data-en="Hands-on" data-fa="عملی">Hands-on</div>
-            <div class="text-xs text-gray-500 uppercase tracking-wider" data-en="Practical Labs" data-fa="لابراتوار">Practical Labs</div>
-          </div>
-          <div class="text-center lg:text-left">
-            <div class="text-2xl sm:text-3xl lg:text-4xl font-cyber font-bold stat-number mb-1" data-en="Start" data-fa="شروع">Start</div>
-            <div class="text-xs text-gray-500 uppercase tracking-wider" data-en="From Zero" data-fa="از صفر">From Zero</div>
-          </div>
+        <div class="flex flex-wrap gap-3 justify-center lg:justify-start mt-8">
+          <button class="luxury-btn pink" onclick="openModal('policy')">
+            <i class="fa-solid fa-shield"></i>
+            <span data-en="POLICY & SAFETY" data-fa="قوانین و امنیت">POLICY & SAFETY</span>
+          </button>
+          <a class="luxury-btn" href="https://t.me/parisa_tech_c" target="_blank" rel="noopener">
+            <i class="fa-brands fa-telegram"></i>
+            <span data-en="OPEN TELEGRAM" data-fa="تلگرام">OPEN TELEGRAM</span>
+          </a>
         </div>
       </div>
 
-      <!-- ✅ Video (replaces images) -->
-      <div class="order-1 lg:order-2 relative px-4 sm:px-0">
-        <div class="luxury-frame float">
-          <div class="luxury-frame-inner media-container">
-
-            <!-- ✅ Autoplay video: no controls, no click needed -->
-            <video class="hero-video"
-                   autoplay
-                   muted
-                   loop
-                   playsinline
-                   preload="auto">
-              <!-- ✅ IMPORTANT: keep video in repo at assets/intro.mp4 -->
-              <source src="assets/intro.mp4" type="video/mp4">
-              <!-- fallback -->
-              Your browser does not support the video tag.
-            </video>
-
-            <div class="video-overlay"></div>
+      <!-- ✅ VIDEO BOX (luxury) -->
+      <div class="relative">
+        <div class="luxury-frame">
+          <div class="luxury-frame-inner">
+            <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto"></video>
+            <div class="video-vignette"></div>
           </div>
         </div>
-
-        <div class="absolute -top-4 -right-4 sm:-top-8 sm:-right-8 w-20 h-20 sm:w-32 sm:h-32 border-2 border-cyan-400/30 rounded-full animate-pulse" style="box-shadow: 0 0 30px rgba(0,255,249,0.2);"></div>
-        <div class="absolute -bottom-4 -left-4 sm:-bottom-8 sm:-left-8 w-16 h-16 sm:w-24 sm:h-24 border-2 border-pink-500/30 rounded-full animate-pulse" style="animation-delay:1s; box-shadow: 0 0 30px rgba(255,0,193,0.2);"></div>
-
-        <div class="absolute top-4 -left-2 sm:top-10 sm:-left-10 cyber-box px-3 py-1 sm:px-4 sm:py-2 rounded-lg">
-          <span class="text-cyan-400 font-cyber text-xs" data-en="🔒 ETHICAL" data-fa="🔒 اخلاقی">🔒 ETHICAL</span>
-        </div>
-        <div class="absolute bottom-10 -right-2 sm:bottom-20 sm:-right-10 cyber-box px-3 py-1 sm:px-4 sm:py-2 rounded-lg border-pink-500/30">
-          <span class="text-pink-400 font-cyber text-xs" data-en="⚡ BEGINNER" data-fa="⚡ مبتدی">⚡ BEGINNER</span>
-        </div>
+        <div class="absolute -top-6 -right-6 w-28 h-28 border-2 border-cyan-400/25 rounded-full animate-pulse" style="box-shadow:0 0 30px rgba(0,255,249,.18)"></div>
+        <div class="absolute -bottom-6 -left-6 w-20 h-20 border-2 border-pink-500/25 rounded-full animate-pulse" style="animation-delay:1s; box-shadow:0 0 30px rgba(255,0,193,.18)"></div>
       </div>
-    </div>
 
-    <div class="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-      <span class="text-[10px] text-gray-600 font-cyber tracking-[0.5em] animate-pulse">SCROLL</span>
-      <div class="w-px h-12 sm:h-16 bg-gradient-to-b from-cyan-400 to-transparent"></div>
     </div>
   </section>
 
-  <!-- Services -->
-  <section id="services" class="py-16 sm:py-32 relative">
+  <!-- SERVICES -->
+  <section id="services" class="py-16 sm:py-28 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-12 sm:mb-20">
-        <span class="text-cyan-400 font-cyber text-xs sm:text-sm tracking-[0.5em] block mb-4"
-              data-en="WHAT WE OFFER" data-fa="چه ارائه می‌دهیم">WHAT WE OFFER</span>
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-cyber font-bold mb-6 sm:mb-8">
-          <span class="text-white" data-en="OUR" data-fa="خدمات">OUR</span>
-          <span class="neon-cyan" data-en="SERVICES" data-fa="ما">SERVICES</span>
+      <div class="text-center mb-10 sm:mb-16">
+        <div class="text-cyan-400 font-cyber text-xs tracking-[0.5em]" data-en="WHAT WE OFFER" data-fa="چه ارائه می‌دهیم">WHAT WE OFFER</div>
+        <h2 class="font-cyber text-4xl sm:text-5xl font-bold mt-4">
+          <span data-en="OUR " data-fa="خدمات ">OUR </span><span class="neon-cyan" data-en="SERVICES" data-fa="ما">SERVICES</span>
         </h2>
-        <div class="w-24 sm:w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mx-auto rounded-full"></div>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6 sm:gap-10">
-        <div class="cyber-box p-6 sm:p-10 group cursor-pointer">
-          <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
-          <div class="w-16 h-16 sm:w-24 sm:h-24 rounded-2xl border border-cyan-400/30 flex items-center justify-center mb-6 sm:mb-8 group-hover:border-cyan-400 group-hover:bg-cyan-400/10 transition-all" style="box-shadow: 0 0 30px rgba(0,255,249,0.2);">
-            <i class="fas fa-graduation-cap text-2xl sm:text-4xl text-cyan-400"></i>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="cyber-box p-7">
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fa-solid fa-graduation-cap text-cyan-400 text-2xl"></i>
+            <div class="font-cyber font-bold" data-en="Practical Training" data-fa="آموزش عملی">Practical Training</div>
           </div>
-          <h3 class="text-lg sm:text-2xl font-cyber font-bold mb-3 sm:mb-4"
-              data-en="PRACTICAL TRAINING" data-fa="آموزش عملی">PRACTICAL TRAINING</h3>
-          <p class="text-gray-400 leading-relaxed text-sm sm:text-base"
-             data-en="Clear roadmap + hands-on labs. Built for beginners and future professionals."
+          <p class="text-gray-400" data-en="Clear roadmap + hands-on labs. Built for beginners and future professionals."
              data-fa="نقشه‌راه واضح + لابراتوار عملی. ساخته‌شده برای مبتدی‌ها و آینده‌ی حرفه‌ای.">
             Clear roadmap + hands-on labs. Built for beginners and future professionals.
           </p>
         </div>
 
-        <div class="cyber-box p-6 sm:p-10 group cursor-pointer border-pink-500/20">
-          <div class="corner corner-tl border-pink-500"></div><div class="corner corner-tr border-pink-500"></div><div class="corner corner-bl border-pink-500"></div><div class="corner corner-br border-pink-500"></div>
-          <div class="w-16 h-16 sm:w-24 sm:h-24 rounded-2xl border border-pink-500/30 flex items-center justify-center mb-6 sm:mb-8 group-hover:border-pink-500 group-hover:bg-pink-500/10 transition-all" style="box-shadow: 0 0 30px rgba(255,0,193,0.2);">
-            <i class="fas fa-flag-checkered text-2xl sm:text-4xl text-pink-500"></i>
+        <div class="cyber-box p-7" style="border-color:rgba(255,0,193,.22)">
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fa-solid fa-flag-checkered text-pink-500 text-2xl"></i>
+            <div class="font-cyber font-bold neon-pink" data-en="Safe Challenges" data-fa="چالش‌های امن">Safe Challenges</div>
           </div>
-          <h3 class="text-lg sm:text-2xl font-cyber font-bold mb-3 sm:mb-4 neon-pink"
-              data-en="SAFE CHALLENGES" data-fa="چالش‌های امن">SAFE CHALLENGES</h3>
-          <p class="text-gray-400 leading-relaxed text-sm sm:text-base"
-             data-en="Train in a safe environment. Ethical learning only — no illegal content."
+          <p class="text-gray-400" data-en="Train in a safe environment. Ethical learning only — no illegal content."
              data-fa="تمرین در محیط امن. فقط آموزش اخلاقی — بدون محتوای غیرقانونی.">
             Train in a safe environment. Ethical learning only — no illegal content.
           </p>
         </div>
 
-        <div class="cyber-box p-6 sm:p-10 group cursor-pointer border-purple-500/20">
-          <div class="corner corner-tl border-purple-500"></div><div class="corner corner-tr border-purple-500"></div><div class="corner corner-bl border-purple-500"></div><div class="corner corner-br border-purple-500"></div>
-          <div class="w-16 h-16 sm:w-24 sm:h-24 rounded-2xl border border-purple-500/30 flex items-center justify-center mb-6 sm:mb-8 group-hover:border-purple-500 group-hover:bg-purple-500/10 transition-all" style="box-shadow: 0 0 30px rgba(168,85,247,0.2);">
-            <i class="fas fa-shield-alt text-2xl sm:text-4xl text-purple-500"></i>
+        <div class="cyber-box p-7" style="border-color:rgba(168,85,247,.22)">
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fa-solid fa-shield text-purple-400 text-2xl"></i>
+            <div class="font-cyber font-bold" style="color:#b99bff" data-en="Security Guidance" data-fa="راهنمایی امنیتی">Security Guidance</div>
           </div>
-          <h3 class="text-lg sm:text-2xl font-cyber font-bold mb-3 sm:mb-4 text-purple-400" style="text-shadow:0 0 20px rgba(168,85,247,0.5)"
-              data-en="SECURITY GUIDANCE" data-fa="راهنمایی امنیتی">SECURITY GUIDANCE</h3>
-          <p class="text-gray-400 leading-relaxed text-sm sm:text-base"
-             data-en="Guidance for personal accounts & small projects (beta)."
-             data-fa="راهنمایی برای حساب‌های شخصی و پروژه‌های کوچک (بتا).">
-            Guidance for personal accounts & small projects (beta).
+          <p class="text-gray-400" data-en="Guidance for accounts & small projects (beta)."
+             data-fa="راهنمایی برای حساب‌ها و پروژه‌های کوچک (بتا).">
+            Guidance for accounts & small projects (beta).
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Courses -->
-  <section id="courses" class="py-16 sm:py-32 bg-black/50 relative">
+  <!-- COURSES -->
+  <section id="courses" class="py-16 sm:py-28 bg-black/45 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 sm:mb-16 gap-4 sm:gap-6">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-10">
         <div>
-          <span class="text-pink-500 font-cyber text-xs sm:text-sm tracking-[0.5em] block mb-4"
-                data-en="LEARNING PATHS" data-fa="مسیرهای یادگیری">LEARNING PATHS</span>
-          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-cyber font-bold">
-            <span class="text-white" data-en="OUR" data-fa="دوره‌های">OUR</span>
-            <span class="neon-pink" data-en="COURSES" data-fa="ما">COURSES</span>
+          <div class="text-pink-500 font-cyber text-xs tracking-[0.5em]" data-en="LEARNING PATHS" data-fa="مسیرهای یادگیری">LEARNING PATHS</div>
+          <h2 class="font-cyber text-4xl sm:text-5xl font-bold mt-4">
+            <span data-en="OUR " data-fa="دوره‌های ">OUR </span><span class="neon-pink" data-en="COURSES" data-fa="ما">COURSES</span>
           </h2>
         </div>
-        <button class="luxury-btn border-pink-500 text-pink-500 w-full sm:w-auto" onclick="showModal()">
+        <button class="luxury-btn pink" onclick="openModal('early')">
           <span data-en="GET SYLLABUS" data-fa="دریافت سیلابس">GET SYLLABUS</span>
-          <i class="fas fa-arrow-right ml-2"></i>
+          <i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-        <div class="course-card group">
-          <div class="h-48 sm:h-56 bg-gradient-to-br from-cyan-900/50 to-blue-900/50 relative overflow-hidden">
-            <div class="absolute inset-0 flex items-center justify-center">
-              <i class="fas fa-network-wired text-6xl sm:text-8xl text-cyan-400/20 group-hover:scale-110 transition-transform duration-500"></i>
-            </div>
-            <div class="absolute top-4 right-4 px-3 py-1 bg-cyan-400/20 border border-cyan-400/50 text-cyan-400 text-[10px] font-cyber rounded-full">FOUNDATION</div>
-          </div>
-          <div class="p-5 sm:p-6">
-            <h3 class="text-base sm:text-lg font-cyber font-bold mb-2 text-white group-hover:text-cyan-400 transition-colors"
-                data-en="Cyber Basics" data-fa="مبانی سایبر">Cyber Basics</h3>
-            <p class="text-gray-500 text-xs sm:text-sm mb-4"
-               data-en="Start from zero: internet, OS, accounts security, privacy, safe habits."
-               data-fa="شروع از صفر: اینترنت، سیستم، امنیت حساب‌ها، حریم خصوصی و عادت‌های امن.">
-              Start from zero: internet, OS, accounts security, privacy, safe habits.
-            </p>
-            <div class="flex items-center justify-between pt-4 border-t border-white/10">
-              <span class="text-xs text-gray-500"><i class="fas fa-clock ml-1"></i> <span data-en="4 Weeks" data-fa="۴ هفته">4 Weeks</span></span>
-              <button class="text-cyan-400 text-xs sm:text-sm font-cyber" onclick="showModal()" data-en="DETAILS →" data-fa="جزئیات →">DETAILS →</button>
-            </div>
-          </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="cyber-box p-6">
+          <div class="font-cyber font-bold text-white" data-en="Cyber Basics" data-fa="مبانی سایبر">Cyber Basics</div>
+          <div class="text-gray-500 text-sm mt-2" data-en="Start from zero: accounts, privacy, safe habits."
+               data-fa="شروع از صفر: حساب‌ها، حریم خصوصی، عادت‌های امن.">Start from zero: accounts, privacy, safe habits.</div>
         </div>
-
-        <div class="course-card group">
-          <div class="h-48 sm:h-56 bg-gradient-to-br from-pink-900/50 to-purple-900/50 relative overflow-hidden">
-            <div class="absolute inset-0 flex items-center justify-center">
-              <i class="fas fa-user-secret text-6xl sm:text-8xl text-pink-400/20 group-hover:scale-110 transition-transform duration-500"></i>
-            </div>
-            <div class="absolute top-4 right-4 px-3 py-1 bg-pink-400/20 border border-pink-400/50 text-pink-400 text-[10px] font-cyber rounded-full">ETHICAL</div>
-          </div>
-          <div class="p-5 sm:p-6">
-            <h3 class="text-base sm:text-lg font-cyber font-bold mb-2 text-white group-hover:text-pink-400 transition-colors"
-                data-en="Ethical Hacking (Safe)" data-fa="هک اخلاقی (امن)">Ethical Hacking (Safe)</h3>
-            <p class="text-gray-500 text-xs sm:text-sm mb-4"
-               data-en="Learn how attacks work — safely in labs. Testing + reporting."
-               data-fa="یادگیری امن در لابراتوار. تست و گزارش‌نویسی.">
-              Learn how attacks work — safely in labs. Testing + reporting.
-            </p>
-            <div class="flex items-center justify-between pt-4 border-t border-white/10">
-              <span class="text-xs text-gray-500"><i class="fas fa-clock ml-1"></i> <span data-en="8 Weeks" data-fa="۸ هفته">8 Weeks</span></span>
-              <button class="text-pink-400 text-xs sm:text-sm font-cyber" onclick="showModal()" data-en="DETAILS →" data-fa="جزئیات →">DETAILS →</button>
-            </div>
-          </div>
+        <div class="cyber-box p-6" style="border-color:rgba(255,0,193,.22)">
+          <div class="font-cyber font-bold text-white" data-en="Ethical Hacking (Safe)" data-fa="هک اخلاقی (امن)">Ethical Hacking (Safe)</div>
+          <div class="text-gray-500 text-sm mt-2" data-en="Learn how attacks work safely in labs."
+               data-fa="یادگیری امن در لابراتوار؛ بدون کار غیرقانونی.">Learn how attacks work safely in labs.</div>
         </div>
-
-        <div class="course-card group">
-          <div class="h-48 sm:h-56 bg-gradient-to-br from-green-900/50 to-teal-900/50 relative overflow-hidden">
-            <div class="absolute inset-0 flex items-center justify-center">
-              <i class="fas fa-fingerprint text-6xl sm:text-8xl text-green-400/20 group-hover:scale-110 transition-transform duration-500"></i>
-            </div>
-            <div class="absolute top-4 right-4 px-3 py-1 bg-green-400/20 border border-green-400/50 text-green-400 text-[10px] font-cyber rounded-full">DEFENSE</div>
-          </div>
-          <div class="p-5 sm:p-6">
-            <h3 class="text-base sm:text-lg font-cyber font-bold mb-2 text-white group-hover:text-green-400 transition-colors"
-                data-en="Defensive Security" data-fa="امنیت دفاعی">Defensive Security</h3>
-            <p class="text-gray-500 text-xs sm:text-sm mb-4"
-               data-en="Protect accounts & devices: MFA, backups, phishing defense, hardening."
-               data-fa="حفاظت حساب و دستگاه: MFA، بکاپ، دفاع فیشینگ و سخت‌سازی.">
-              Protect accounts & devices: MFA, backups, phishing defense, hardening.
-            </p>
-            <div class="flex items-center justify-between pt-4 border-t border-white/10">
-              <span class="text-xs text-gray-500"><i class="fas fa-clock ml-1"></i> <span data-en="6 Weeks" data-fa="۶ هفته">6 Weeks</span></span>
-              <button class="text-green-400 text-xs sm:text-sm font-cyber" onclick="showModal()" data-en="DETAILS →" data-fa="جزئیات →">DETAILS →</button>
-            </div>
-          </div>
+        <div class="cyber-box p-6" style="border-color:rgba(34,197,94,.22)">
+          <div class="font-cyber font-bold text-white" data-en="Defensive Security" data-fa="امنیت دفاعی">Defensive Security</div>
+          <div class="text-gray-500 text-sm mt-2" data-en="MFA, backups, phishing defense, hardening."
+               data-fa="MFA، بکاپ، دفاع فیشینگ، سخت‌سازی.">MFA, backups, phishing defense, hardening.</div>
         </div>
-
-        <div class="course-card group">
-          <div class="h-48 sm:h-56 bg-gradient-to-br from-orange-900/50 to-red-900/50 relative overflow-hidden">
-            <div class="absolute inset-0 flex items-center justify-center">
-              <i class="fas fa-cloud text-6xl sm:text-8xl text-orange-400/20 group-hover:scale-110 transition-transform duration-500"></i>
-            </div>
-            <div class="absolute top-4 right-4 px-3 py-1 bg-orange-400/20 border border-orange-400/50 text-orange-400 text-[10px] font-cyber rounded-full">NEXT</div>
-          </div>
-          <div class="p-5 sm:p-6">
-            <h3 class="text-base sm:text-lg font-cyber font-bold mb-2 text-white group-hover:text-orange-400 transition-colors"
-                data-en="Career Roadmap" data-fa="نقشه مسیر کار">Career Roadmap</h3>
-            <p class="text-gray-500 text-xs sm:text-sm mb-4"
-               data-en="How to build portfolio, CV, labs, and prepare for entry-level jobs."
-               data-fa="ساخت پورتفولیو، رزومه، لابراتوارها و آمادگی برای کارهای ابتدایی.">
-              How to build portfolio, CV, labs, and prepare for entry-level jobs.
-            </p>
-            <div class="flex items-center justify-between pt-4 border-t border-white/10">
-              <span class="text-xs text-gray-500"><i class="fas fa-clock ml-1"></i> <span data-en="3 Weeks" data-fa="۳ هفته">3 Weeks</span></span>
-              <button class="text-orange-400 text-xs sm:text-sm font-cyber" onclick="showModal()" data-en="DETAILS →" data-fa="جزئیات →">DETAILS →</button>
-            </div>
-          </div>
+        <div class="cyber-box p-6" style="border-color:rgba(249,115,22,.22)">
+          <div class="font-cyber font-bold text-white" data-en="Career Roadmap" data-fa="نقشه مسیر کار">Career Roadmap</div>
+          <div class="text-gray-500 text-sm mt-2" data-en="Portfolio, CV, labs, entry-level prep."
+               data-fa="پورتفولیو، رزومه، لابراتوار، آمادگی کار.">Portfolio, CV, labs, entry-level prep.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="py-16 sm:py-32 relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
-        <div class="order-2 lg:order-1">
-          <span class="text-cyan-400 font-cyber text-xs sm:text-sm tracking-[0.5em] block mb-4"
-                data-en="WHO WE ARE" data-fa="ما کیستیم">WHO WE ARE</span>
+  <!-- ABOUT -->
+  <section id="about" class="py-16 sm:py-28 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <div class="text-cyan-400 font-cyber text-xs tracking-[0.5em]" data-en="WHO WE ARE" data-fa="ما کیستیم">WHO WE ARE</div>
+        <h2 class="font-cyber text-4xl sm:text-5xl font-bold mt-4">
+          <span class="neon-cyan">PARISA</span> <span class="text-white">TECH</span>
+        </h2>
+        <p class="text-gray-300 mt-6 leading-relaxed"
+           data-en="A cybersecurity learning community for Afghans worldwide — simple, practical, and ethical."
+           data-fa="جامعه آموزشی امنیت سایبری برای افغان‌ها در سراسر جهان — ساده، عملی و اخلاقی.">
+          A cybersecurity learning community for Afghans worldwide — simple, practical, and ethical.
+        </p>
+        <p class="text-gray-500 mt-3"
+           data-en="Our mission: accessible education, step-by-step from zero."
+           data-fa="ماموریت ما: آموزش قابل‌دسترس، قدم‌به‌قدم از صفر.">
+          Our mission: accessible education, step-by-step from zero.
+        </p>
+      </div>
 
-          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-cyber font-bold mb-6 sm:mb-8">
-            <span class="text-white">PARISA</span> <span class="neon-cyan">TECH</span>
-          </h2>
-
-          <p class="text-gray-300 leading-relaxed mb-4 sm:mb-6 text-base sm:text-xl font-light"
-             data-en="Parisa Tech is a cybersecurity learning community for Afghans worldwide. Simple, practical, and respectful education for real life and real careers."
-             data-fa="Parisa Tech یک جامعه آموزشی امنیت سایبری برای افغان‌ها در سراسر جهان است. ساده، عملی و مناسب برای زندگی و کار.">
-            Parisa Tech is a cybersecurity learning community for Afghans worldwide. Simple, practical, and respectful education for real life and real careers.
-          </p>
-
-          <p class="text-gray-400 leading-relaxed mb-8 sm:mb-10 text-sm sm:text-base"
-             data-en="Our mission: make cybersecurity education accessible — step by step, from zero."
-             data-fa="ماموریت ما: دسترسی آسان آموزش سایبر — از صفر، قدم‌به‌قدم.">
-            Our mission: make cybersecurity education accessible — step by step, from zero.
-          </p>
-
-          <div class="grid grid-cols-2 gap-4 sm:gap-8">
-            <div class="cyber-box p-5 sm:p-8 text-center group hover:scale-105 transition-transform">
-              <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
-              <div class="text-3xl sm:text-5xl font-cyber font-bold stat-number mb-2" data-en="Community" data-fa="جامعه">Community</div>
-              <div class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider" data-en="Telegram-based" data-fa="بر بستر تلگرام">Telegram-based</div>
+      <div class="luxury-frame">
+        <div class="luxury-frame-inner">
+          <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-pink-500/10"></div>
+          <div class="p-7 sm:p-9 relative">
+            <div class="cyber-box p-6">
+              <div class="font-cyber font-bold text-white" data-en="Ethical-first" data-fa="اول اخلاق">Ethical-first</div>
+              <div class="text-gray-500 mt-2" data-en="We focus on defense, learning, and responsible practice."
+                   data-fa="تمرکز ما دفاع، آموزش و تمرین مسئولانه است.">
+                We focus on defense, learning, and responsible practice.
+              </div>
+              <div class="flex gap-3 mt-4">
+                <button class="luxury-btn" onclick="openModal('policy')">
+                  <i class="fa-solid fa-file-shield"></i>
+                  <span data-en="READ POLICY" data-fa="خواندن پالیسی">READ POLICY</span>
+                </button>
+              </div>
             </div>
-
-            <div class="cyber-box p-5 sm:p-8 text-center border-pink-500/30 group hover:scale-105 transition-transform">
-              <div class="corner corner-tl border-pink-500"></div><div class="corner corner-tr border-pink-500"></div><div class="corner corner-bl border-pink-500"></div><div class="corner corner-br border-pink-500"></div>
-              <div class="text-3xl sm:text-5xl font-cyber font-bold stat-number mb-2" data-en="Practical" data-fa="عملی">Practical</div>
-              <div class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider" data-en="Labs & Roadmaps" data-fa="لابراتوار و مسیر">Labs & Roadmaps</div>
+            <div class="text-gray-600 text-xs mt-4" data-en="* Content is for education & safety only." data-fa="* محتوا فقط برای آموزش و امنیت است.">
+              * Content is for education & safety only.
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="order-1 lg:order-2 relative">
-          <div class="luxury-frame">
-            <div class="luxury-frame-inner">
-              <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=600&fit=crop" alt="Cyber Lab" class="w-full h-64 sm:h-80 lg:h-96 object-cover" style="filter:contrast(1.1) saturate(0.9) brightness(0.9);">
-            </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-16 sm:py-28 bg-black/45 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-8">
+      <div>
+        <div class="text-pink-500 font-cyber text-xs tracking-[0.5em]" data-en="GET IN TOUCH" data-fa="تماس">GET IN TOUCH</div>
+        <h2 class="font-cyber text-4xl sm:text-5xl font-bold mt-4">
+          <span data-en="CONTACT " data-fa="تماس ">CONTACT </span><span class="neon-pink">US</span>
+        </h2>
+
+        <p class="text-gray-400 mt-6" data-en="Fastest support on Telegram." data-fa="سریع‌ترین پاسخ در تلگرام است.">
+          Fastest support on Telegram.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a class="luxury-btn" href="https://t.me/parisa_tech_c" target="_blank" rel="noopener">
+            <i class="fa-brands fa-telegram"></i>
+            <span data-en="TELEGRAM CHANNEL" data-fa="کانال تلگرام">TELEGRAM CHANNEL</span>
+          </a>
+
+          <!-- Social placeholders: replace with your real links -->
+          <a class="luxury-btn pink" href="#" onclick="return false;">
+            <i class="fa-brands fa-instagram"></i>
+            <span data-en="INSTAGRAM" data-fa="اینستاگرام">INSTAGRAM</span>
+          </a>
+          <a class="luxury-btn pink" href="#" onclick="return false;">
+            <i class="fa-brands fa-youtube"></i>
+            <span data-en="YOUTUBE" data-fa="یوتیوب">YOUTUBE</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="cyber-box p-7">
+        <div class="font-cyber font-bold text-white text-xl" data-en="Quick Form" data-fa="فورم سریع">Quick Form</div>
+        <p class="text-gray-500 text-sm mt-2" data-en="Submit and we notify admins on Telegram (via Worker)."
+           data-fa="ارسال کنید تا به گروه ادمین در تلگرام پیام برود (از طریق Worker).">
+          Submit and we notify admins on Telegram (via Worker).
+        </p>
+
+        <form id="leadForm" class="mt-6 space-y-4">
+          <input id="f_name" class="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-cyan-400" placeholder="Name" required>
+          <select id="f_goal" class="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-cyan-400" required>
+            <option value="Beginner" data-en="Beginner" data-fa="مبتدی">Beginner</option>
+            <option value="Career" data-en="Career" data-fa="مسیر کار">Career</option>
+            <option value="Defense" data-en="Defense" data-fa="دفاع">Defense</option>
+          </select>
+          <input id="f_country" class="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-cyan-400" placeholder="Country (optional)">
+          <button class="luxury-btn w-full" type="submit">
+            <span data-en="SEND" data-fa="ارسال">SEND</span>
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+          <div class="text-gray-600 text-xs" data-en="By submitting, you agree to our policy & safety rules."
+               data-fa="با ارسال فورم، پالیسی و قوانین امنیتی را قبول می‌کنید.">
+            By submitting, you agree to our policy & safety rules.
           </div>
-          <div class="absolute -bottom-4 -left-4 sm:-bottom-8 sm:-left-8 cyber-box p-4 sm:p-6 bg-black/90">
-            <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
-            <div class="text-2xl sm:text-4xl font-cyber font-bold text-white mb-1" data-en="Online" data-fa="آنلاین">Online</div>
-            <div class="text-xs sm:text-sm text-gray-400" data-en="Worldwide" data-fa="جهانی">Worldwide</div>
-          </div>
+        </form>
+
+        <div class="mt-5">
+          <button class="luxury-btn pink w-full" onclick="openModal('policy')">
+            <i class="fa-solid fa-file-shield"></i>
+            <span data-en="VIEW POLICY" data-fa="دیدن پالیسی">VIEW POLICY</span>
+          </button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-16 sm:py-32 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-r from-cyan-900/20 via-purple-900/20 to-pink-900/20"></div>
-    <div class="absolute inset-0" style="background:radial-gradient(circle at center, rgba(0,255,249,0.1) 0%, transparent 60%)"></div>
-
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
-      <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-cyber font-bold mb-6 sm:mb-10 leading-tight">
-        <span data-en="READY TO START?" data-fa="آماده‌اید؟">READY TO START?</span><br>
-        <span class="neon-cyan" data-en="JOIN THE COMMUNITY" data-fa="به جامعه بپیوندید">JOIN THE COMMUNITY</span>
-      </h2>
-
-      <p class="text-gray-300 text-base sm:text-lg md:text-xl mb-10 sm:mb-16 max-w-2xl mx-auto font-light"
-         data-en="Join the waitlist to receive the free intro lesson and the full syllabus on Telegram."
-         data-fa="در لیست انتظار ثبت‌نام کنید تا درس رایگان و سیلابس کامل را در تلگرام دریافت کنید.">
-        Join the waitlist to receive the free intro lesson and the full syllabus on Telegram.
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-        <button class="luxury-btn text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-6" onclick="showModal()">
-          <i class="fas fa-rocket ml-2 sm:ml-3 text-lg sm:text-2xl"></i>
-          <span data-en="JOIN WAITLIST" data-fa="ثبت در لیست">JOIN WAITLIST</span>
-        </button>
-
-        <!-- ✅ Telegram (Dari) -->
-        <a class="luxury-btn border-pink-500 text-pink-500 text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-6 inline-flex items-center justify-center"
-           href="https://t.me/parisa_tech_c" target="_blank" rel="noopener">
-          <i class="fab fa-telegram ml-2 sm:ml-3 text-lg sm:text-2xl"></i>
-          <span data-en="OPEN TELEGRAM" data-fa="بازکردن تلگرام">OPEN TELEGRAM</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="py-16 sm:py-32 bg-black/50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid lg:grid-cols-2 gap-10 lg:gap-20">
-        <div>
-          <span class="text-pink-500 font-cyber text-xs sm:text-sm tracking-[0.5em] block mb-4"
-                data-en="GET IN TOUCH" data-fa="تماس بگیرید">GET IN TOUCH</span>
-          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-cyber font-bold mb-6 sm:mb-10">
-            <span class="text-white" data-en="CONTACT" data-fa="تماس">CONTACT</span> <span class="neon-pink">US</span>
-          </h2>
-
-          <p class="text-gray-400 text-base sm:text-lg mb-8 sm:mb-12"
-             data-en="For fast support, message us on Telegram."
-             data-fa="برای پشتیبانی سریع، در تلگرام پیام بدهید.">
-            For fast support, message us on Telegram.
-          </p>
-
-          <div class="space-y-6 sm:space-y-8">
-            <div class="flex items-center gap-4 sm:gap-6 group">
-              <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl border border-pink-400/30 flex items-center justify-center group-hover:border-pink-400 group-hover:bg-pink-400/10 transition-all" style="box-shadow: 0 0 20px rgba(255,0,193,0.2);">
-                <i class="fab fa-telegram text-pink-400 text-lg sm:text-2xl"></i>
-              </div>
-              <div>
-                <div class="text-xs text-gray-500 uppercase tracking-wider mb-1" data-en="Telegram (Dari)" data-fa="تلگرام (دری)">Telegram (Dari)</div>
-                <a class="text-white text-base sm:text-lg hover:underline" href="https://t.me/parisa_tech_c" target="_blank" rel="noopener">@parisa_tech_c</a>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-4 sm:gap-6 group">
-              <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl border border-cyan-400/30 flex items-center justify-center group-hover:border-cyan-400 group-hover:bg-cyan-400/10 transition-all" style="box-shadow: 0 0 20px rgba(0,255,249,0.2);">
-                <i class="fas fa-map-marker-alt text-cyan-400 text-lg sm:text-2xl"></i>
-              </div>
-              <div>
-                <div class="text-xs text-gray-500 uppercase tracking-wider mb-1" data-en="Location" data-fa="موقعیت">Location</div>
-                <div class="text-white text-base sm:text-lg" data-en="Global — Online" data-fa="جهانی — آنلاین">Global — Online</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ✅ Form (send to your Worker API) -->
-        <div class="cyber-box p-6 sm:p-10">
-          <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
-
-          <!-- IMPORTANT: replace WORKER_URL below -->
-          <form class="space-y-4 sm:space-y-6" id="leadForm">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-              <div>
-                <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2" data-en="Name" data-fa="نام">Name</label>
-                <input id="f_name" type="text" class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors text-sm sm:text-base" required>
-              </div>
-              <div>
-                <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2" data-en="Goal" data-fa="هدف">Goal</label>
-                <select id="f_goal" class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors text-sm sm:text-base" required>
-                  <option value="Beginner" data-en="Beginner" data-fa="مبتدی">Beginner</option>
-                  <option value="Career" data-en="Career" data-fa="مسیر کار">Career</option>
-                  <option value="Defense" data-en="Defense" data-fa="دفاع">Defense</option>
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2" data-en="Country (Optional)" data-fa="کشور (اختیاری)">Country (Optional)</label>
-              <input id="f_country" type="text" placeholder="Germany" class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors text-sm sm:text-base">
-            </div>
-
-            <button type="submit" class="luxury-btn w-full text-sm sm:text-base py-4">
-              <span data-en="SEND" data-fa="ارسال">SEND</span>
-              <i class="fas fa-paper-plane ml-2"></i>
-            </button>
-
-            <p class="text-center text-gray-600 text-xs sm:text-sm"
-               data-en="Tip: We reply fastest on Telegram."
-               data-fa="نکته: سریع‌ترین پاسخ در تلگرام است.">
-              Tip: We reply fastest on Telegram.
-            </p>
-          </form>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-black border-t border-white/10 pt-12 sm:pt-20 pb-6 sm:pb-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12 sm:mb-16">
-        <div class="md:col-span-2">
-          <div class="flex items-center gap-3 sm:gap-4 mb-6">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl border-2 border-cyan-400 flex items-center justify-center" style="box-shadow: 0 0 20px rgba(0,255,249,0.3);">
-              <i class="fas fa-shield-virus text-cyan-400 text-xl sm:text-2xl"></i>
-            </div>
-            <div>
-              <span class="font-cyber text-2xl sm:text-3xl font-bold tracking-widest neon-cyan">PARISA</span>
-              <span class="font-cyber text-2xl sm:text-3xl font-bold tracking-widest text-white ml-1 sm:ml-2">TECH</span>
-            </div>
-          </div>
-
-          <p class="text-gray-500 leading-relaxed max-w-md mb-6 sm:mb-8 text-sm sm:text-base"
-             data-en="Cybersecurity training community — practical, beginner-friendly, and ethical."
-             data-fa="جامعه آموزش امنیت سایبری — عملی، ساده و اخلاقی.">
-            Cybersecurity training community — practical, beginner-friendly, and ethical.
-          </p>
-
-          <div class="flex gap-3 sm:gap-4">
-            <a href="https://t.me/parisa_tech_c" target="_blank" rel="noopener"
-               class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl border border-gray-800 flex items-center justify-center hover:border-cyan-400 hover:text-cyan-400 transition-all"
-               style="box-shadow: 0 0 20px rgba(0,255,249,0.2);">
-              <i class="fab fa-telegram text-lg sm:text-2xl"></i>
-            </a>
-
-            <!-- ✅ Replace these with your real links -->
-            <a href="#" class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl border border-gray-800 flex items-center justify-center hover:border-pink-500 hover:text-pink-500 transition-all"
-               style="box-shadow: 0 0 20px rgba(255,0,193,0.2);">
-              <i class="fab fa-instagram text-lg sm:text-2xl"></i>
-            </a>
-            <a href="#" class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl border border-gray-800 flex items-center justify-center hover:border-purple-500 hover:text-purple-500 transition-all"
-               style="box-shadow: 0 0 20px rgba(168,85,247,0.2);">
-              <i class="fab fa-tiktok text-lg sm:text-2xl"></i>
-            </a>
-            <a href="#" class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl border border-gray-800 flex items-center justify-center hover:border-red-500 hover:text-red-500 transition-all">
-              <i class="fab fa-youtube text-lg sm:text-2xl"></i>
-            </a>
-          </div>
-        </div>
-
-        <div>
-          <h4 class="font-cyber text-sm tracking-wider mb-4 sm:mb-6 text-cyan-400" data-en="QUICK LINKS" data-fa="لینک‌های سریع">QUICK LINKS</h4>
-          <ul class="space-y-2 sm:space-y-3 text-gray-500 text-sm sm:text-base">
-            <li><a href="#courses" class="hover:text-white transition-colors" data-en="Courses" data-fa="دوره‌ها">Courses</a></li>
-            <li><a href="#services" class="hover:text-white transition-colors" data-en="Services" data-fa="خدمات">Services</a></li>
-            <li><a href="#about" class="hover:text-white transition-colors" data-en="About" data-fa="درباره">About</a></li>
-            <li><a href="#contact" class="hover:text-white transition-colors" data-en="Contact" data-fa="تماس">Contact</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="font-cyber text-sm tracking-wider mb-4 sm:mb-6 text-pink-500" data-en="LEGAL" data-fa="قانونی">LEGAL</h4>
-          <ul class="space-y-2 sm:space-y-3 text-gray-500 text-sm sm:text-base">
-            <li><a href="#policy" class="hover:text-white transition-colors" data-en="Ethics Policy" data-fa="سیاست اخلاقی">Ethics Policy</a></li>
-            <li><a href="#policy" class="hover:text-white transition-colors" data-en="Disclaimer" data-fa="سلب مسئولیت">Disclaimer</a></li>
-            <li><a href="#policy" class="hover:text-white transition-colors" data-en="Privacy Note" data-fa="یادداشت حریم خصوصی">Privacy Note</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="border-t border-white/10 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-gray-600 text-xs sm:text-sm">© 2026 Parisa Tech. <span data-en="All rights reserved." data-fa="کلیه حقوق محفوظ است.">All rights reserved.</span></p>
-        <div class="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-gray-600">
-          <i class="fas fa-globe text-cyan-400"></i>
-          <span data-en="Online • Worldwide" data-fa="آنلاین • جهانی">Online • Worldwide</span>
-        </div>
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 py-8 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-gray-600 text-sm">© 2026 Parisa Tech</div>
+      <div class="flex gap-3">
+        <a class="text-gray-500 hover:text-cyan-400 transition" href="https://t.me/parisa_tech_c" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i></a>
+        <a class="text-gray-500 hover:text-pink-500 transition" href="#" onclick="return false;"><i class="fa-brands fa-instagram"></i></a>
+        <a class="text-gray-500 hover:text-red-500 transition" href="#" onclick="return false;"><i class="fa-brands fa-youtube"></i></a>
       </div>
     </div>
   </footer>
 
-  <!-- Policy Section (3 parts) -->
-  <section id="policy" class="py-16 sm:py-24">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="cyber-box p-6 sm:p-10">
-        <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
-
-        <h2 class="text-2xl sm:text-3xl font-cyber font-bold mb-6 neon-cyan" data-en="Ethics & Safety" data-fa="اخلاق و امنیت">Ethics & Safety</h2>
-
-        <div class="space-y-6 text-gray-300 text-sm sm:text-base leading-relaxed">
-          <div>
-            <h3 class="font-cyber text-lg text-white mb-2" data-en="1) Educational Use Only" data-fa="۱) فقط برای آموزش">1) Educational Use Only</h3>
-            <p data-en="All materials are shared for learning and defensive awareness. We do not support illegal activity."
-               data-fa="تمام مطالب فقط برای آموزش و افزایش آگاهی دفاعی است. ما از فعالیت غیرقانونی حمایت نمی‌کنیم.">
-              All materials are shared for learning and defensive awareness. We do not support illegal activity.
-            </p>
-          </div>
-
-          <div>
-            <h3 class="font-cyber text-lg text-white mb-2" data-en="2) No Harm / No Misuse" data-fa="۲) بدون آسیب / بدون سوءاستفاده">2) No Harm / No Misuse</h3>
-            <p data-en="Do not test systems you do not own or do not have explicit permission to test."
-               data-fa="هرگز سیستم‌هایی را که مالک آن نیستید یا اجازه صریح ندارید، تست نکنید.">
-              Do not test systems you do not own or do not have explicit permission to test.
-            </p>
-          </div>
-
-          <div>
-            <h3 class="font-cyber text-lg text-white mb-2" data-en="3) Privacy Note" data-fa="۳) یادداشت حریم خصوصی">3) Privacy Note</h3>
-            <p data-en="When you submit the form, we only receive the information you enter to contact you on Telegram."
-               data-fa="وقتی فورم را ارسال می‌کنید، فقط همان اطلاعاتی را که وارد می‌کنید دریافت می‌کنیم تا در تلگرام با شما تماس بگیریم.">
-              When you submit the form, we only receive the information you enter to contact you on Telegram.
-            </p>
-          </div>
-        </div>
-
+  <!-- ✅ MODAL (Early + Policy) -->
+  <div class="modal-wrap" id="modal">
+    <div class="modal-back" onclick="closeModal()"></div>
+    <div class="modal-card">
+      <div class="modal-head">
+        <div class="font-cyber font-bold text-white" id="modalTitle">PARISA TECH</div>
+        <button class="text-gray-400 hover:text-white transition" onclick="closeModal()">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
       </div>
-    </div>
-  </section>
-
-  <!-- Modal -->
-  <div id="modal" class="fixed inset-0 z-[100] hidden">
-    <div class="absolute inset-0 bg-black/95 backdrop-blur-2xl" onclick="closeModal()"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md px-4">
-      <div class="cyber-box p-6 sm:p-10 bg-black/90">
-        <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
-
-        <div class="flex justify-between items-center mb-6 sm:mb-8">
-          <h3 class="text-2xl sm:text-4xl font-cyber font-bold neon-cyan"
-              data-en="EARLY ACCESS" data-fa="دسترسی اولیه">EARLY ACCESS</h3>
-          <button onclick="closeModal()" class="text-gray-500 hover:text-white transition-colors">
-            <i class="fas fa-times text-2xl sm:text-3xl"></i>
-          </button>
-        </div>
-
-        <p class="text-gray-400 text-sm sm:text-base mb-6"
-           data-en="Join the waitlist and get the free intro lesson + syllabus on Telegram."
-           data-fa="در لیست انتظار ثبت‌نام کنید و درس رایگان + سیلابس را در تلگرام دریافت کنید.">
-          Join the waitlist and get the free intro lesson + syllabus on Telegram.
-        </p>
-
-        <form class="space-y-4 sm:space-y-6" onsubmit="event.preventDefault(); alert(langNow==='fa'?'تشکر! به زودی در تلگرام پیام می‌دهیم.':'Thanks! We will message you on Telegram soon.'); closeModal();">
-          <div>
-            <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2" data-en="Full Name" data-fa="نام کامل">Full Name</label>
-            <input type="text" class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors" required>
-          </div>
-          <div>
-            <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2" data-en="Telegram ID (optional)" data-fa="آیدی تلگرام (اختیاری)">Telegram ID (optional)</label>
-            <input type="text" placeholder="@username" class="w-full bg-black/50 border border-gray-700 rounded-lg p-3 sm:p-4 text-white focus:border-cyan-400 focus:outline-none transition-colors">
-          </div>
-
-          <button type="submit" class="luxury-btn w-full text-sm sm:text-base py-4 sm:py-5">
-            <span data-en="JOIN WAITLIST" data-fa="ثبت در لیست">JOIN WAITLIST</span>
-            <i class="fas fa-arrow-right ml-2"></i>
-          </button>
-        </form>
-
-        <p class="text-center text-gray-500 text-sm mt-6 sm:mt-8">
-          <span data-en="Telegram:" data-fa="تلگرام:">Telegram:</span>
-          <a class="text-cyan-400 hover:underline ml-1" href="https://t.me/parisa_tech_c" target="_blank" rel="noopener">@parisa_tech_c</a>
-        </p>
+      <div class="modal-body">
+        <div class="tabbar" id="tabbar"></div>
+        <div id="modalContent" class="text-gray-200 leading-relaxed text-sm"></div>
       </div>
     </div>
   </div>
 
   <script>
-    // ====== CONFIG (IMPORTANT) ======
-    // ✅ Paste your Cloudflare Worker endpoint here:
+    // ====== CONFIG ======
+    // ✅ Cloudflare Worker endpoint (yours)
     const WORKER_URL = "https://super-violet-e0d9parisa-tech-api.erfanadeli24.workers.dev/";
-    // =================================
+    // ✅ Video sources: prefer repo asset, fallback to direct Drive
+    const VIDEO_SOURCES = [
+      "assets/intro.mp4",
+      "https://drive.google.com/uc?export=download&id=1jm1pxMKBsmbVEKKT-Cui8Y8o5zzdwL5F"
+    ];
+    // ====================
 
-    let langNow = "en"; // ✅ default English
+    let langNow = "en";
 
-    // Mobile Menu Toggle
-    function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      const overlay = document.querySelector('.mobile-menu-overlay');
-      const hamburger = document.getElementById('hamburger');
-      menu.classList.toggle('active');
-      overlay.classList.toggle('active');
-      hamburger.classList.toggle('active');
-    }
-
-    // Language Switching (EN/FA only)
-    function setLang(lang, btnEl) {
+    // ===== Language =====
+    function setLang(lang, btnEl){
       langNow = lang;
-      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-      if (btnEl) btnEl.classList.add('active');
+      document.querySelectorAll(".lang-btn").forEach(b=>b.classList.remove("active"));
+      if(btnEl) btnEl.classList.add("active");
 
-      document.querySelectorAll('[data-en]').forEach(el => {
-        if (lang === 'en') el.textContent = el.getAttribute('data-en');
-        else el.textContent = el.getAttribute('data-fa');
+      document.querySelectorAll("[data-en]").forEach(el=>{
+        el.textContent = (lang==="en") ? el.getAttribute("data-en") : el.getAttribute("data-fa");
       });
 
-      // RTL for fa
-      if (lang === 'fa') {
-        document.body.classList.add('rtl');
-        document.documentElement.setAttribute('dir', 'rtl');
+      if(lang==="fa"){
+        document.documentElement.setAttribute("dir","rtl");
+        document.body.classList.add("rtl");
       } else {
-        document.body.classList.remove('rtl');
-        document.documentElement.setAttribute('dir', 'ltr');
+        document.documentElement.setAttribute("dir","ltr");
+        document.body.classList.remove("rtl");
       }
     }
 
-    // Modal
-    function showModal() {
-      document.getElementById('modal').classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeModal() {
-      document.getElementById('modal').classList.add('hidden');
-      document.body.style.overflow = 'auto';
+    // ===== Mobile menu =====
+    function toggleMenu(force){
+      const drawer = document.getElementById("mDrawer");
+      const overlay = document.getElementById("mOverlay");
+      const ham = document.getElementById("hamburger");
+      const isOpen = drawer.classList.contains("show");
+      const next = (typeof force==="boolean") ? force : !isOpen;
+      drawer.classList.toggle("show", next);
+      overlay.classList.toggle("show", next);
+      ham.classList.toggle("active", next);
+      document.body.style.overflow = next ? "hidden" : "auto";
     }
 
-    // ✅ Form submit -> Cloudflare Worker -> Telegram Admin Group
-    const leadForm = document.getElementById("leadForm");
-    leadForm.addEventListener("submit", async (e) => {
+    // ===== Modal content =====
+    const MODAL = document.getElementById("modal");
+    const modalTitle = document.getElementById("modalTitle");
+    const tabbar = document.getElementById("tabbar");
+    const modalContent = document.getElementById("modalContent");
+
+    const policyTabs = [
+      {
+        key:"edu",
+        enTitle:"Educational Use",
+        faTitle:"فقط آموزشی",
+        en: "All materials and guidance are provided for <b>education</b> and <b>defensive awareness</b>. We do not support illegal activity, misuse, or harm.",
+        fa: "تمام مطالب و راهنمایی‌ها فقط برای <b>آموزش</b> و <b>آگاهی دفاعی</b> است. ما از کار غیرقانونی، سوءاستفاده یا آسیب حمایت نمی‌کنیم."
+      },
+      {
+        key:"noharm",
+        enTitle:"No Harm / No Misuse",
+        faTitle:"بدون آسیب",
+        en: "Do not test systems you do not own and do not have <b>explicit permission</b> to test. Use labs and legal platforms only.",
+        fa: "سیستم‌هایی را که مالک آن نیستید یا <b>اجازه صریح</b> ندارید تست نکنید. فقط از لابراتوار و پلتفرم‌های قانونی استفاده کنید."
+      },
+      {
+        key:"privacy",
+        enTitle:"Privacy",
+        faTitle:"حریم خصوصی",
+        en: "When you submit a form, we only receive the data you enter to contact you and organize learning. We do not sell personal data.",
+        fa: "وقتی فورم را ارسال می‌کنید، فقط اطلاعاتی که وارد می‌کنید برای تماس و نظم‌دهی آموزش دریافت می‌شود. ما اطلاعات شخصی را نمی‌فروشیم."
+      }
+    ];
+
+    function renderTabs(tabs, activeKey){
+      tabbar.innerHTML = "";
+      tabs.forEach(t=>{
+        const btn = document.createElement("button");
+        btn.className = "tabbtn" + (t.key===activeKey ? " active":"");
+        btn.textContent = (langNow==="en") ? t.enTitle : t.faTitle;
+        btn.onclick = () => setActiveTab(tabs, t.key);
+        tabbar.appendChild(btn);
+      });
+    }
+
+    function setActiveTab(tabs, key){
+      renderTabs(tabs, key);
+      const t = tabs.find(x=>x.key===key);
+      modalContent.innerHTML = (langNow==="en") ? t.en : t.fa;
+    }
+
+    function openModal(type){
+      MODAL.classList.add("show");
+      document.body.style.overflow = "hidden";
+
+      if(type==="early"){
+        modalTitle.textContent = (langNow==="en") ? "EARLY ACCESS" : "دسترسی اولیه";
+        tabbar.innerHTML = "";
+        modalContent.innerHTML = `
+          <div class="text-gray-300">
+            <div class="font-cyber text-lg text-white mb-2">${langNow==="en" ? "Join the Waitlist" : "ثبت در لیست انتظار"}</div>
+            <div class="text-gray-500 mb-4">${langNow==="en"
+              ? "Get updates, free intro lesson, and syllabus via Telegram."
+              : "آپدیت‌ها، درس رایگان و سیلابس را از طریق تلگرام دریافت کنید."}</div>
+            <div class="flex flex-col gap-3">
+              <a class="luxury-btn" href="https://t.me/parisa_tech_c" target="_blank" rel="noopener">
+                <i class="fa-brands fa-telegram"></i>
+                <span>${langNow==="en" ? "OPEN TELEGRAM" : "باز کردن تلگرام"}</span>
+              </a>
+              <button class="luxury-btn pink" onclick="openModal('policy')">
+                <i class="fa-solid fa-file-shield"></i>
+                <span>${langNow==="en" ? "READ POLICY" : "خواندن پالیسی"}</span>
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
+      if(type==="policy"){
+        modalTitle.textContent = (langNow==="en") ? "POLICY & SAFETY" : "پالیسی و امنیت";
+        setActiveTab(policyTabs, "edu");
+      }
+    }
+
+    function closeModal(){
+      MODAL.classList.remove("show");
+      document.body.style.overflow = "auto";
+    }
+
+    // ===== Form -> Worker =====
+    document.getElementById("leadForm").addEventListener("submit", async (e)=>{
       e.preventDefault();
-
       const name = document.getElementById("f_name").value.trim();
       const goal = document.getElementById("f_goal").value.trim();
       const country = document.getElementById("f_country").value.trim();
 
-      try {
+      try{
         const res = await fetch(WORKER_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
+          method:"POST",
+          headers:{ "Content-Type":"application/json" },
           body: JSON.stringify({ name, goal, country })
         });
-
-        const data = await res.json().catch(() => ({}));
-
-        if (!res.ok || data.ok === false) {
-          alert(langNow === 'fa' ? "خطا! فورم ارسال نشد. لطفاً دوباره کوشش کنید." : "Error! Form was not sent. Please try again.");
+        const data = await res.json().catch(()=>({}));
+        if(!res.ok || data.ok===false){
+          alert(langNow==="fa" ? "خطا! فورم ارسال نشد." : "Error! Form not sent.");
           return;
         }
-
-        alert(langNow === 'fa' ? "تشکر! فورم ارسال شد ✅" : "Thanks! Form submitted ✅");
-        leadForm.reset();
-      } catch (err) {
-        alert(langNow === 'fa' ? "مشکل شبکه! لطفاً دوباره کوشش کنید." : "Network error! Please try again.");
+        alert(langNow==="fa" ? "تشکر! ارسال شد ✅" : "Thanks! Sent ✅");
+        e.target.reset();
+      }catch(err){
+        alert(langNow==="fa" ? "مشکل شبکه! دوباره کوشش کنید." : "Network error! Try again.");
       }
     });
 
-    // ✅ Force autoplay in some browsers (just in case)
-    window.addEventListener("load", () => {
-      const v = document.querySelector("video.hero-video");
-      if (v) {
-        v.muted = true;
-        const p = v.play();
-        if (p && typeof p.catch === "function") p.catch(() => {});
-      }
-    });
+    // ===== Video Loader (fix) =====
+    async function loadVideo(){
+      const v = document.getElementById("heroVideo");
+      v.muted = true;
+      v.autoplay = true;
+      v.loop = true;
+      v.playsInline = true;
 
-    // Matrix Rain
+      // try sources in order
+      for(const src of VIDEO_SOURCES){
+        const ok = await trySetVideoSource(v, src);
+        if(ok) return;
+      }
+
+      // fallback if no source works
+      v.outerHTML = `
+        <div class="absolute inset-0 flex items-center justify-center text-gray-500">
+          <div class="text-center px-6">
+            <div class="font-cyber text-white mb-2">VIDEO UNAVAILABLE</div>
+            <div class="text-sm">Please ensure <b>assets/intro.mp4</b> exists in your repo.</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function trySetVideoSource(videoEl, src){
+      return new Promise((resolve)=>{
+        // reset
+        videoEl.pause();
+        videoEl.innerHTML = "";
+        const source = document.createElement("source");
+        source.src = src;
+        source.type = "video/mp4";
+        videoEl.appendChild(source);
+        videoEl.load();
+
+        const onCanPlay = async ()=>{
+          cleanup();
+          try{ await videoEl.play(); }catch(e){}
+          resolve(true);
+        };
+        const onError = ()=>{
+          cleanup();
+          resolve(false);
+        };
+        const cleanup = ()=>{
+          videoEl.removeEventListener("canplay", onCanPlay);
+          videoEl.removeEventListener("error", onError);
+          // some browsers fire error on source instead:
+          source.removeEventListener("error", onError);
+        };
+
+        videoEl.addEventListener("canplay", onCanPlay, { once:true });
+        videoEl.addEventListener("error", onError, { once:true });
+        source.addEventListener("error", onError, { once:true });
+
+        // timeout safety
+        setTimeout(()=>{ cleanup(); resolve(false); }, 3000);
+      });
+    }
+
+    // ===== Matrix =====
     const canvas = document.getElementById('matrix');
     const ctx = canvas.getContext('2d');
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-
     const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
     const fontSize = 14;
-    let columns = Math.floor(canvas.width / fontSize);
-    const drops = [];
-    for (let i = 0; i < columns; i++) drops[i] = Math.random() * canvas.height;
+    let drops = [];
 
-    function drawMatrix() {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
+    function resizeCanvas(){
+      canvas.width = innerWidth;
+      canvas.height = innerHeight;
+      const columns = Math.floor(canvas.width / fontSize);
+      drops = Array.from({length:columns}, ()=> Math.random() * canvas.height);
+    }
+    function draw(){
+      ctx.fillStyle = 'rgba(0,0,0,0.06)';
+      ctx.fillRect(0,0,canvas.width,canvas.height);
       ctx.fillStyle = '#00fff9';
       ctx.font = fontSize + 'px monospace';
 
-      for (let i = 0; i < drops.length; i++) {
-        const text = chars[Math.floor(Math.random() * chars.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+      for(let i=0;i<drops.length;i++){
+        const t = chars[Math.floor(Math.random()*chars.length)];
+        ctx.fillText(t, i*fontSize, drops[i]*fontSize);
+        if(drops[i]*fontSize > canvas.height && Math.random()>0.975) drops[i]=0;
         drops[i]++;
       }
     }
-    setInterval(drawMatrix, 35);
 
-    window.addEventListener('resize', () => {
-      resizeCanvas();
-      columns = Math.floor(canvas.width / fontSize);
-      drops.length = columns;
-      for (let i = 0; i < columns; i++) {
-        if (drops[i] === undefined) drops[i] = Math.random() * canvas.height;
-      }
-    });
+    window.addEventListener('resize', resizeCanvas);
 
-    // ✅ default language
+    // ===== init =====
+    resizeCanvas();
+    setInterval(draw, 35);
     setLang("en", document.querySelector(".lang-btn"));
+    window.addEventListener("load", loadVideo);
   </script>
 </body>
 </html>
